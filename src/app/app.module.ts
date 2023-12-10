@@ -11,8 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { FormsModule } from '@angular/forms'; 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2'; 
 import { MapAdsModule } from './pages/map-ads/map-ads.module';
 
 import { Routing } from './pages/routing';
@@ -36,7 +35,6 @@ function appInitializer(authService: AuthService) {
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
     HttpClientModule,
-    FormsModule,
     ClipboardModule,
     // #fake-start#
     environment.isMockEnabled
