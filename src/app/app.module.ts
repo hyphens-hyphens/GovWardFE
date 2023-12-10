@@ -13,10 +13,11 @@ import { AuthService } from './modules/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormsModule } from '@angular/forms'; 
-import { AgmCoreModule } from '@agm/core';
+import { MapAdsModule } from './pages/map-ads/map-ads.module';
+
+import { Routing } from './pages/routing';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
-import { MapAdsComponent } from './pages/map-ads/map-ads.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -29,7 +30,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MapAdsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -49,7 +50,7 @@ function appInitializer(authService: AuthService) {
     InlineSVGModule.forRoot(),
     NgbModule,
     SweetAlert2Module.forRoot(),
-    AgmCoreModule.forRoot({apiKey:'AIzaSyDKGLVscNATdIi2QAFm2nPQumW8xzfrCwc',libraries: ["places", "geometry"]}),
+    
   ],
   providers: [
     {

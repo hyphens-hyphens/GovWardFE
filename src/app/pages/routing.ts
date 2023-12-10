@@ -55,7 +55,10 @@ const Routing: Routes = [
     //     path: '**',
     //     redirectTo: 'error/404',
     // },
-
+   {
+        path: 'map',
+        loadChildren: () => import('./map-ads/map-ads.module').then((m) => m.MapAdsModule),
+    },
     {
         path: '',
         loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
