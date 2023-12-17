@@ -18,9 +18,10 @@ export class MapAdsComponent implements OnInit {
   ngOnInit(): void {
     const loader = new Loader(
       {
-        apiKey: "AIzaSyD1jYr2uzhkAsZQm4Cnz64xEAr2K9pte8A",
+        apiKey: "AIzaSyBArSGmaIAsNmA-hzgeX-Lk_7DpmgH-PsQ",
         version: "weekly", 
-        libraries: ["places"]
+        libraries: ["places"],
+        
       },
      
     )
