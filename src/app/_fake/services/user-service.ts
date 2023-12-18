@@ -30,7 +30,6 @@ export interface IUserModel {
     providedIn: 'root'
 })
 export class UserService {
-
     private apiUrl = 'https://preview.keenthemes.com/starterkit/metronic/laravel/api/v1/users';
     // private apiUrl = 'http://127.0.0.1:8000/api/v1/users';
 

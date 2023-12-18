@@ -1,21 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ModalsModule } from '../../_metronic/partials';
 import { DashboardComponent } from './dashboard.component';
-import { ModalsModule, WidgetsModule } from '../../_metronic/partials';
 
 @NgModule({
-  declarations: [DashboardComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: DashboardComponent,
-      },
-    ]),
-    WidgetsModule,
-    ModalsModule,
-  ],
+    declarations: [DashboardComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: DashboardComponent,
+            },
+        ]),
+        ModalsModule,
+    ],
 })
-export class DashboardModule {}
+export class DashboardModule { }
