@@ -15,6 +15,8 @@ import { AuthService } from './modules/auth/services/auth.service';
 
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
+import { AdsLocationComponent } from './features/AdsLocation/ads-location/ads-location.component';
+import { AdsLocationFormComponent } from './features/AdsLocation/ads-location-form/ads-location-form.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -27,7 +29,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, AdsLocationComponent, AdsLocationFormComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
