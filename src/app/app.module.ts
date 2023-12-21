@@ -17,6 +17,7 @@ import { AuthService } from './modules/auth/services/auth.service';
 import { FakeAPIService } from './_fake/fake-api.service';
 import { AdsLocationComponent } from './features/AdsLocation/ads-location/ads-location.component';
 import { AdsLocationFormComponent } from './features/AdsLocation/ads-location-form/ads-location-form.component';
+import { ApiModule } from './api/api.module';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -48,7 +49,7 @@ function appInitializer(authService: AuthService) {
         InlineSVGModule.forRoot(),
         NgbModule,
         SweetAlert2Module.forRoot(),
-
+        ApiModule.forRoot({ rootUrl: environment.apiUrl }),
     ],
     providers: [
         {
