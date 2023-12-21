@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,10 +15,11 @@ import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/services/auth.service';
 
 // #fake-start#
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FakeAPIService } from './_fake/fake-api.service';
-import { AdsLocationComponent } from './features/AdsLocation/ads-location/ads-location.component';
-import { AdsLocationFormComponent } from './features/AdsLocation/ads-location-form/ads-location-form.component';
 import { ApiModule } from './api/api.module';
+import { AdsLocationFormComponent } from './pages/ads-location/ads-location-form/ads-location-form.component';
+import { AdsLocationComponent } from './pages/ads-location/ads-location.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -37,6 +39,8 @@ function appInitializer(authService: AuthService) {
         TranslateModule.forRoot(),
         HttpClientModule,
         ClipboardModule,
+        MatTableModule,
+        MatPaginatorModule,
         // #fake-start#
         environment.isMockEnabled
             ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {

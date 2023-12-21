@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AdsLocationComponent } from '../features/AdsLocation/ads-location/ads-location.component';
+import { AdsLocationComponent } from './ads-location/ads-location.component';
 
 const Routing: Routes = [
 
