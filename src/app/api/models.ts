@@ -1,9 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
-export { Adsadvertising } from './models/adsadvertising';
-export { Adsadvertisingpicture } from './models/adsadvertisingpicture';
 export { Adslocation } from './models/adslocation';
-export { Adslocationpicture } from './models/adslocationpicture';
-export { Adslocationupdate } from './models/adslocationupdate';
-export { Reportwarning } from './models/reportwarning';
-export { Reportwarningurl } from './models/reportwarningurl';
+export { AdslocationBaseResponse } from './models/adslocation-base-response';
+export { AdslocationListBaseResponse } from './models/adslocation-list-base-response';
+export { Adstype } from './models/adstype';
+export { AdstypeBaseResponse } from './models/adstype-base-response';
+export { AdstypeIEnumerableBaseResponse } from './models/adstype-i-enumerable-base-response';
+export { BooleanBaseResponse } from './models/boolean-base-response';

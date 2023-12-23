@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Adslocation } from 'src/app/api/models';
-import { AdslocationsService } from 'src/app/api/services';
+import { Adslocation, AdslocationBaseResponse } from 'src/app/api/models';
+import { AdsLocationsService } from 'src/app/api/services';
 
 @Component({
     selector: 'app-ads-form',
@@ -13,17 +13,22 @@ export class AdsLocationFormComponent implements OnInit {
 
     ads: Adslocation | undefined = undefined;
 
-    constructor(private adsLocationService: AdslocationsService) { }
+    constructor(private adsLocationService: AdsLocationsService) { }
 
     ngOnInit(): void { }
 
     getAdsById(id: number) {
         this.adsLocationService
-            .apiAdslocationsIdGet$Json({ id })
+            .apiAdsLocationsIdGet$Json({ id })
             .subscribe(
                 {
-                    next: (response: Adslocation) => {
-                        this.ads = response;
+                    next: (response: AdslocationBaseResponse) => {
+                        if (response.isError) {
+                            window.alert(response.errorMessage);
+                        }
+                        else {
+                            this.ads = response.data;
+                        }
                     },
                     error: (e) => console.error(e),
                     complete: () => console.info('complete')

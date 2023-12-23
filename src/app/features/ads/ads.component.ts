@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, tap } from 'rxjs';
-import { Adslocation } from 'src/app/api/models';
-import { AdslocationsService } from 'src/app/api/services';
+import { Observable } from 'rxjs';
+import { Adslocation, AdslocationListBaseResponse } from 'src/app/api/models';
+import { AdsLocationsService } from 'src/app/api/services';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-di
     templateUrl: './ads.component.html',
     styleUrls: ['./ads.component.scss']
 })
-export class AdsLocationComponent implements OnInit, AfterViewInit {
+export class AdsComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     displayedColumns: string[] = ['ID', 'Address', 'Latitute', 'Longtitute', 'Action'];
@@ -24,17 +24,17 @@ export class AdsLocationComponent implements OnInit, AfterViewInit {
         this.getList();
     }
 
-    constructor(private adsLocationService: AdslocationsService, public dialog: MatDialog) { }
+    constructor(private adsLocationService: AdsLocationsService, public dialog: MatDialog) { }
 
     ngOnInit(): void {
 
     }
 
     getList(): void {
-        this.adsLocationService.apiAdslocationsGet$Json()
+        this.adsLocationService.apiAdsLocationsGet$Json()
             .subscribe({
-                next: (response: Adslocation[]) => {
-                    this.dataSource.data = response;
+                next: (response: AdslocationListBaseResponse) => {
+                    this.dataSource.data = response.data;
                 },
                 error: (e) => console.error(e),
                 complete: () => console.info('complete')
@@ -42,7 +42,7 @@ export class AdsLocationComponent implements OnInit, AfterViewInit {
     }
 
     displayForm(element: Adslocation): void {
-        this.adsSelectedId = element.id;
+        this.adsSelectedId = element.adsLocationId;
     }
 
     refresh() {
