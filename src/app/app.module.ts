@@ -20,10 +20,13 @@ import { AuthService } from './modules/auth';
 // #fake-end#
 
 // angular-material
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
 import { AdsLocationComponent } from './features/ads/ads.component';
 import { MapAdsModule } from './features/map-ads/map-ads.module';
@@ -39,7 +42,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent, AdsLocationComponent, AdsLocationFormComponent],
+    declarations: [AppComponent, AdsLocationComponent, AdsLocationFormComponent, ConfirmDialogComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -64,7 +67,9 @@ function appInitializer(authService: AuthService) {
         MatCardModule,
         MatGridListModule,
         MapAdsModule,
-        MatInputModule
+        MatInputModule,
+        MatButtonModule,
+        MatDialogModule
     ],
     providers: [
         {
