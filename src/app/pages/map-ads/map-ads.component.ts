@@ -20,7 +20,6 @@ export class MapAdsComponent implements OnInit {
                 apiKey: "AIzaSyBArSGmaIAsNmA-hzgeX-Lk_7DpmgH-PsQ",
                 version: "weekly",
                 libraries: ["places"],
-
             },
 
         )

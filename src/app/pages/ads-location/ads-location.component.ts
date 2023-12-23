@@ -12,7 +12,7 @@ import { AdslocationsService } from 'src/app/api/services';
 export class AdsLocationComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    displayedColumns: string[] = ['id', 'adsAddress', 'latitute', 'longtitute'];
+    displayedColumns: string[] = ['ID', 'Address', 'Latitute', 'Longtitute'];
     dataSource = new MatTableDataSource<Adslocation>();
 
     ngAfterViewInit() {

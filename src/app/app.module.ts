@@ -20,6 +20,7 @@ import { FakeAPIService } from './_fake/fake-api.service';
 import { ApiModule } from './api/api.module';
 import { AdsLocationFormComponent } from './pages/ads-location/ads-location-form/ads-location-form.component';
 import { AdsLocationComponent } from './pages/ads-location/ads-location.component';
+import { MatCardModule } from '@angular/material/card';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -54,6 +55,7 @@ function appInitializer(authService: AuthService) {
         NgbModule,
         SweetAlert2Module.forRoot(),
         ApiModule.forRoot({ rootUrl: environment.apiUrl }),
+        MatCardModule
     ],
     providers: [
         {
