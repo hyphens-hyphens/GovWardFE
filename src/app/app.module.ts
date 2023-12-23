@@ -12,7 +12,6 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './modules/auth/services/auth.service';
 
 // #fake-start#
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -21,6 +20,7 @@ import { ApiModule } from './api/api.module';
 import { AdsLocationFormComponent } from './pages/ads-location/ads-location-form/ads-location-form.component';
 import { AdsLocationComponent } from './pages/ads-location/ads-location.component';
 import { MatCardModule } from '@angular/material/card';
+import { AuthService } from './modules/auth';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -54,7 +54,7 @@ function appInitializer(authService: AuthService) {
         InlineSVGModule.forRoot(),
         NgbModule,
         SweetAlert2Module.forRoot(),
-        ApiModule.forRoot({ rootUrl: environment.apiUrl }),
+        ApiModule.forRoot({ rootUrl: environment.apiUrl_GOV }),
         MatCardModule
     ],
     providers: [
