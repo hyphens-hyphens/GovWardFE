@@ -5,9 +5,9 @@ import { Adslocation } from 'src/app/api/models';
 import { AdslocationsService } from 'src/app/api/services';
 
 @Component({
-    selector: 'app-ads-location',
-    templateUrl: './ads-location.component.html',
-    styleUrls: ['./ads-location.component.scss']
+    selector: 'app-ads',
+    templateUrl: './ads.component.html',
+    styleUrls: ['./ads.component.scss']
 })
 export class AdsLocationComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;

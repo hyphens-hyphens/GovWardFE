@@ -14,14 +14,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // #fake-start#
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { FakeAPIService } from './_fake/fake-api.service';
 import { ApiModule } from './api/api.module';
-import { AdsLocationFormComponent } from './pages/ads-location/ads-location-form/ads-location-form.component';
-import { AdsLocationComponent } from './pages/ads-location/ads-location.component';
-import { MatCardModule } from '@angular/material/card';
 import { AuthService } from './modules/auth';
 // #fake-end#
+
+// angular-material
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
+import { AdsLocationComponent } from './features/ads/ads.component';
+import { MapAdsModule } from './features/map-ads/map-ads.module';
+// angular-material
 
 function appInitializer(authService: AuthService) {
     return () => {
@@ -55,7 +61,10 @@ function appInitializer(authService: AuthService) {
         NgbModule,
         SweetAlert2Module.forRoot(),
         ApiModule.forRoot({ rootUrl: environment.apiUrl_GOV }),
-        MatCardModule
+        MatCardModule,
+        MatGridListModule,
+        MapAdsModule,
+        MatInputModule
     ],
     providers: [
         {

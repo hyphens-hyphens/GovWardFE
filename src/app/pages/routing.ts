@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { AdsLocationComponent } from './ads-location/ads-location.component';
+import { AdsLocationComponent } from '../features/ads/ads.component';
 
 const Routing: Routes = [
 
     {
         path: 'map',
-        loadChildren: () => import('./map-ads/map-ads.module').then((m) => m.MapAdsModule),
+        loadChildren: () => import('../features/map-ads/map-ads.module').then((m) => m.MapAdsModule),
     },
     {
-        path: 'ads-locations',
+        path: 'ads',
         component: AdsLocationComponent
     },
     {
