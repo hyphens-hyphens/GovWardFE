@@ -28,8 +28,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
-import { AdsLocationComponent } from './features/ads/ads.component';
 import { MapAdsModule } from './features/map-ads/map-ads.module';
+import { AdsComponent } from './features/ads/ads.component';
+import { AdsTypesComponent } from './features/ads-types/ads-types.component';
+import { AdsTypesFormComponent } from './features/ads-types/ads-types-form/ads-types-form.component';
 // angular-material
 
 function appInitializer(authService: AuthService) {
@@ -42,7 +44,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent, AdsLocationComponent, AdsLocationFormComponent, ConfirmDialogComponent],
+    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent,],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

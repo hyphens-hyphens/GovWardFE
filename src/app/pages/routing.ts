@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { AdsLocationComponent } from '../features/ads-location/ads-location.component';
+import { AdsComponent } from '../features/ads/ads.component';
+import { AdsTypesComponent } from '../features/ads-types/ads-types.component';
 
 const Routing: Routes = [
 
@@ -9,7 +10,11 @@ const Routing: Routes = [
     },
     {
         path: 'ads',
-        component: AdsLocationComponent
+        component: AdsComponent
+    },
+    {
+        path: 'ads-types',
+        component: AdsTypesComponent
     },
     {
         path: '**',

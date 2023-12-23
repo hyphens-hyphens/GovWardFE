@@ -4,7 +4,8 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { AdslocationsService } from './services/adslocations.service';
+import { AdsLocationsService } from './services/ads-locations.service';
+import { AdsTypesService } from './services/ads-types.service';
 
 /**
  * Module that provides all services and configuration.
@@ -14,7 +15,8 @@ import { AdslocationsService } from './services/adslocations.service';
   exports: [],
   declarations: [],
   providers: [
-    AdslocationsService,
+    AdsLocationsService,
+    AdsTypesService,
     ApiConfiguration
   ],
 })
