@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-12">
+        <app-map-ads></app-map-ads>
+    </div>
+    <div class="col-12 mt-2">
+        <mat-card>
+            <div class="mat-elevation-z8">
+                <table
+                    mat-table
+                    [dataSource]="dataSource"
+                >
+                    <ng-container matColumnDef="ID">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > No. </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Address">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Address </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.adsAddress}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Latitute">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > latitute</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.latitute}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Longtitute">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > longtitute</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.longtitute}} </td>
+                    </ng-container>
+
+
+                    <tr
+                        mat-header-row
+                        *matHeaderRowDef="displayedColumns"
+                    ></tr>
+                    <tr
+                        mat-row
+                        *matRowDef="let row; columns: displayedColumns;"
+                    ></tr>
+                </table>
+                <mat-paginator
+                    [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements"
+                >
+                </mat-paginator>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-12 mt-2">
+        <app-ads-location-form></app-ads-location-form>
+    </div>
+</div>
