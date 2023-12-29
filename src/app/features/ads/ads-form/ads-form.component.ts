@@ -96,15 +96,7 @@ export class AdsLocationFormComponent implements OnInit {
             body: this.ads
         }).pipe(
             finalize(() => this.isLoading = false)
-        ).subscribe(
-            {
-                next: (response: BooleanBaseResponse) => {
-
-                },
-                error: (e) => console.error(e),
-                complete: () => console.info('complete')
-            }
-        )
+        ).subscribe()
     }
 
     cancel() {
