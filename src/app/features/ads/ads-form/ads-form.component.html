@@ -1,28 +1,16 @@
 <mat-card>
     <mat-card-header>
         <h3>Ads {{ ads?.adsLocationId ? 'Update' : 'Create' }}</h3>
+        <pre *ngIf="ads?.adsLocationId">
+        Id: {{ads?.adsLocationId}} - Location: {{ads?.adsAddress}}
+        </pre>
     </mat-card-header>
 
     <mat-card-content>
-
         <div
             class="row"
             *ngIf="ads"
         >
-            <div
-                style="
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5); 
-                z-index: 1;"
-                *ngIf="isLoading"
-            >
-                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            </div>
-
             <div
                 class="col-4"
                 *ngIf="ads?.adsLocationId"
@@ -119,7 +107,7 @@
                     >
                         <mat-option
                             *ngFor="let status of adsStatusList"
-                            [value]="status.valueString"
+                            [value]="status.valueDisplay"
                         >
                             {{status.valueDisplay}}
                         </mat-option>
@@ -129,25 +117,36 @@
 
             <div class="col-4">
                 <mat-form-field class="w-100">
-                    <mat-label>EndDate</mat-label>
+                    <mat-label>End Date</mat-label>
                     <input
                         matInput
-                        placeholder="EndDate..."
+                        [matDatepicker]="picker"
                         [(ngModel)]="ads.endDate"
                     >
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker
+                        touchUi
+                        #picker
+                    ></mat-datepicker>
                 </mat-form-field>
             </div>
-            
 
         </div>
     </mat-card-content>
     <mat-card-actions align="end">
+
         <button
             mat-stroked-button
             color="primary"
             (click)="save()"
             style="margin-right: 2px;"
-        >{{ ads?.adsLocationId ? 'Update' : 'Create' }}</button>
+            [disabled]="isLoading"
+        >{{ ads?.adsLocationId ? 'Update' : 'Create' }}
+        </button>
         <button
             mat-stroked-button
             color="accent"
