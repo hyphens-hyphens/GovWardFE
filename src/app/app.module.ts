@@ -23,19 +23,23 @@ import { AuthService } from './modules/auth';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { ToastrModule } from 'ngx-toastr';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { AdsTypesFormComponent } from './features/ads-types/ads-types-form/ads-types-form.component';
 import { AdsTypesComponent } from './features/ads-types/ads-types.component';
 import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
 import { AdsComponent } from './features/ads/ads.component';
 import { MapAdsModule } from './features/map-ads/map-ads.module';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatNativeDateModule } from '@angular/material/core';
+
 // angular-material
 
 function appInitializer(authService: AuthService) {
@@ -53,6 +57,7 @@ function appInitializer(authService: AuthService) {
         BrowserModule,
         BrowserAnimationsModule,
         TranslateModule.forRoot(),
+        ToastrModule.forRoot(),
         HttpClientModule,
         ClipboardModule,
         MatTableModule,
@@ -79,7 +84,9 @@ function appInitializer(authService: AuthService) {
         FormsModule,
         MatFormFieldModule,
         MatSelectModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     providers: [
         {

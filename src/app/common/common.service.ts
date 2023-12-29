@@ -7,7 +7,6 @@ import { Observable, throwError } from 'rxjs';
     providedIn: 'root'
 })
 export class CommonService {
-
     constructor(private toastrService: ToastrService) { }
 
     handleError(params?: ErrorHandlerParams): (error: HttpErrorResponse) => Observable<never> {
@@ -98,7 +97,7 @@ export class ErrorHandlerParams {
     errorMessage?: string = 'Server request failed';
 }
 
-enum TypeToast {
+export enum TypeToast {
     success,
     error,
     warning,
