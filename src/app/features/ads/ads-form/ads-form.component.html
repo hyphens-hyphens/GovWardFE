@@ -51,11 +51,44 @@
 
             <div class="col-4">
                 <mat-form-field class="w-100">
-                    <mat-label>Latitute</mat-label>
+                    <mat-label>Width</mat-label>
+                    <input
+                        matInput
+                        placeholder="Width..."
+                        [(ngModel)]="ads.width"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Height</mat-label>
+                    <input
+                        matInput
+                        placeholder="Height..."
+                        [(ngModel)]="ads.height"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Latitude</mat-label>
                     <input
                         matInput
                         placeholder="Latitute..."
                         [(ngModel)]="ads.latitude"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Longtitude</mat-label>
+                    <input
+                        matInput
+                        placeholder="Longtitude..."
+                        [(ngModel)]="ads.longtitude"
                     >
                 </mat-form-field>
             </div>
@@ -93,6 +126,18 @@
                     </mat-select>
                 </mat-form-field>
             </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>EndDate</mat-label>
+                    <input
+                        matInput
+                        placeholder="EndDate..."
+                        [(ngModel)]="ads.endDate"
+                    >
+                </mat-form-field>
+            </div>
+            
 
         </div>
     </mat-card-content>
