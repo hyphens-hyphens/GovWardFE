@@ -1,5 +1,5 @@
-import { Component, EventEmitter } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, EventEmitter, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-confirm-dialog',
@@ -7,10 +7,20 @@ import { MatDialogRef } from '@angular/material/dialog';
     styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogComponent {
-    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) { }
+    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
     confirmEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     submit(confirm: boolean): void {
-        this.confirmEvent.emit(confirm);
+        if (confirm) {
+            this.data?.confirmFunction?.();
+        }
+        else {
+            this.data?.rejectFunction?.();
+        }
     }
+}
+
+export interface DialogData {
+    confirmFunction: Function | undefined;
+    rejectFunction: Function | undefined;
 }

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+import { Observable, finalize, tap } from 'rxjs';
 import { Adslocation, AdslocationListBaseResponse } from 'src/app/api/models';
 import { AdsLocationsService } from 'src/app/api/services';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
@@ -18,6 +18,7 @@ export class AdsComponent implements OnInit, AfterViewInit {
     displayedColumns: string[] = ['ID', 'Address', 'Latitute', 'Longtitute', 'Action'];
     dataSource = new MatTableDataSource<Adslocation>();
     adsSelectedId?: number;
+    deleteSelectedId?: number;
 
     ngAfterViewInit() {
         this.dataSource.paginator = this.paginator;
@@ -26,9 +27,7 @@ export class AdsComponent implements OnInit, AfterViewInit {
 
     constructor(private adsLocationService: AdsLocationsService, public dialog: MatDialog) { }
 
-    ngOnInit(): void {
-
-    }
+    ngOnInit(): void { }
 
     getList(): void {
         this.adsLocationService.apiAdsLocationsGet$Json()
@@ -37,7 +36,6 @@ export class AdsComponent implements OnInit, AfterViewInit {
                     this.dataSource.data = response.data;
                 },
                 error: (e) => console.error(e),
-                complete: () => console.info('complete')
             });
     }
 
@@ -51,19 +49,32 @@ export class AdsComponent implements OnInit, AfterViewInit {
     }
 
     deleteAds(element: Adslocation): void {
-        this.openDialog().subscribe({
-            next: (response) => {
-                console.log(response)
-            },
-            error: (e) => console.error(e),
-            complete: () => console.info('complete')
-        })
+        this.deleteSelectedId = element.adsLocationId;
+        this.openDialog()
+            .pipe(finalize(() => this.clearSelectedDelete()))
+            .subscribe()
     }
 
     openDialog(): Observable<any> {
         return this.dialog.open(ConfirmDialogComponent, {
             width: '250px',
-        })
-            .afterClosed()
+            data: {
+                confirmFunction: this.confirm,
+                rejectFunction: this.clearSelectedDelete
+            }
+        }).afterClosed()
+    }
+
+    confirm = () => {
+        this.adsLocationService.apiAdsLocationsIdDelete$Json({
+            id: this.deleteSelectedId
+        }).pipe(
+            tap(() => this.refresh()),
+            finalize(() => this.clearSelectedDelete())
+        ).subscribe();
+    }
+
+    clearSelectedDelete = () => {
+        this.deleteSelectedId = undefined;
     }
 }

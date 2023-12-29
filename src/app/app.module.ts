@@ -20,18 +20,22 @@ import { AuthService } from './modules/auth';
 // #fake-end#
 
 // angular-material
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
-import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
-import { MapAdsModule } from './features/map-ads/map-ads.module';
-import { AdsComponent } from './features/ads/ads.component';
-import { AdsTypesComponent } from './features/ads-types/ads-types.component';
 import { AdsTypesFormComponent } from './features/ads-types/ads-types-form/ads-types-form.component';
+import { AdsTypesComponent } from './features/ads-types/ads-types.component';
+import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.component';
+import { AdsComponent } from './features/ads/ads.component';
+import { MapAdsModule } from './features/map-ads/map-ads.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 // angular-material
 
 function appInitializer(authService: AuthService) {
@@ -71,7 +75,11 @@ function appInitializer(authService: AuthService) {
         MapAdsModule,
         MatInputModule,
         MatButtonModule,
-        MatDialogModule
+        MatDialogModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatProgressBarModule
     ],
     providers: [
         {
