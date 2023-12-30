@@ -39,6 +39,10 @@ import { AdsLocationFormComponent } from './features/ads/ads-form/ads-form.compo
 import { AdsComponent } from './features/ads/ads.component';
 import { MapAdsModule } from './features/map-ads/map-ads.module';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AdsNewComponent } from './features/ads-new/ads-new.component';
+import { AdsNewFormComponent } from './features/ads-new/ads-new-form/ads-new-form.component';
+import { ReportWarningComponent } from './features/report-warning/report-warning.component';
+import { ReportWarningFormComponent } from './features/report-warning/report-warning-form/report-warning-form.component';
 
 // angular-material
 
@@ -52,7 +56,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent,],
+    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent, AdsNewComponent, AdsNewFormComponent, ReportWarningComponent, ReportWarningFormComponent,],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

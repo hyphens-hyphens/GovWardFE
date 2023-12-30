@@ -1,0 +1,130 @@
+<!-- <p>report-warning-form works!</p> -->
+<!-- <p>ads-new-form works!</p> -->
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Report Warning {{ reportwarning?.reportWarningId ? 'Update' : 'Create' }}</mat-card-title>
+        <mat-card-subtitle *ngIf="reportwarning?.adsLocationId">
+        Id: {{reportwarning?.adsLocationId}} - Adress: {{reportwarning?.fullName}}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div
+            class="row"
+            *ngIf="reportwarning"
+        >
+            <div
+                class="col-4"
+                *ngIf="reportwarning?.reportWarningId"
+            >
+                <mat-form-field class="w-100">
+                    <mat-label>Ads No.</mat-label>
+                    <input
+                        matInput
+                        placeholder="ID..."
+                        [(ngModel)]="reportwarning.reportWarningId"
+                        [disabled]="true"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Full Name</mat-label>
+                    <input
+                        matInput
+                        placeholder="Fullname..."
+                        [(ngModel)]="reportwarning.fullName"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Type</mat-label>
+                    <mat-select
+                        [(ngModel)]="reportwarning.warningType"
+                        name="Type"
+                    >
+                        <mat-option
+                            *ngFor="let type of warningTypeList"
+                            [value]="type.valueNumber"
+                        >
+                            {{type.valueDisplay}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>PhoneNumber</mat-label>
+                    <input
+                        matInput
+                        placeholder="Phone Number..."
+                        type="number"
+                        [(ngModel)]="reportwarning.phoneNumber"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Comment</mat-label>
+                    <input
+                        matInput
+                        placeholder="Comment..."
+                        [(ngModel)]="reportwarning.comment"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Ads Location ID</mat-label>
+                    <input
+                        matInput
+                        placeholder="Ads Location ID..."
+                        [(ngModel)]="reportwarning.adsLocationId"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Status</mat-label>
+                    <mat-select
+                        [(ngModel)]="reportwarning.reportWarningStatus"
+                        name="ads-type"
+                    >
+                        <mat-option
+                            *ngFor="let type of adsStatusList"
+                            [value]="type.valueNumber"
+                        >
+                            {{type.valueDisplay}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+
+        <button
+            mat-stroked-button
+            color="primary"
+            (click)="save()"
+            style="margin-right: 2px;"
+            [disabled]="isLoading"
+        >{{ reportwarning?.reportWarningId ? 'Update' : 'Create' }}
+        </button>
+        <button
+            mat-stroked-button
+            color="accent"
+            (click)="cancel()"
+        >Cancel</button>
+    </mat-card-actions>
+</mat-card>
