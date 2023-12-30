@@ -42,31 +42,7 @@
                         > {{element.displayName}} </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="Action">
-                        <th
-                            mat-header-cell
-                            *matHeaderCellDef
-                            class="text-center"
-                            width="200"
-                        > Action</th>
-                        <td
-                            mat-cell
-                            *matCellDef="let element"
-                        >
-                            <div class="d-flex justify-content-center">
-                                <button
-                                    mat-stroked-button
-                                    color="primary"
-                                    (click)="displayForm(element)"
-                                >Update</button>
-                                <button
-                                    mat-stroked-button
-                                    color="accent"
-                                    (click)="deleteAds(element)"
-                                >Delete</button>
-                            </div>
-                        </td>
-                    </ng-container>
+
 
                     <tr
                         mat-header-row
@@ -85,11 +61,5 @@
                 </mat-paginator>
             </div>
         </mat-card>
-    </div>
-    <div class="col-12 mt-2">
-        <app-ads-form
-            [adsSelectedId]="adsSelectedId"
-            (refresh)="refresh()"
-        ></app-ads-form>
     </div>
 </div>

@@ -15,7 +15,7 @@ import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-di
 export class AdsTypesComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    displayedColumns: string[] = ['ID', 'Name', 'DisplayName', 'Action'];
+    displayedColumns: string[] = ['ID', 'Name', 'DisplayName'];
     dataSource = new MatTableDataSource<Adstype>();
     adsSelectedId?: number;
 

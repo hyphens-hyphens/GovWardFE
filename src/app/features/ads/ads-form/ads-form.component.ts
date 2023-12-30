@@ -42,7 +42,7 @@ export class AdsLocationFormComponent implements OnInit, OnChanges {
     initNewAds(): void {
         this.ads = {
             isActive: true,
-            adsStatus: 'ChuaXetDuyet',
+            adsStatus: 'Chưa xét duyệt',
             typeId: 1
         };
         this.changeDetector.detectChanges();

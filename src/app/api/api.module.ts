@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { AdsLocationsService } from './services/ads-locations.service';
+import { AdsNewsService } from './services/ads-news.service';
 import { AdsTypesService } from './services/ads-types.service';
+import { ReportWarningsService } from './services/report-warnings.service';
 
 /**
  * Module that provides all services and configuration.
@@ -16,7 +18,9 @@ import { AdsTypesService } from './services/ads-types.service';
   declarations: [],
   providers: [
     AdsLocationsService,
+    AdsNewsService,
     AdsTypesService,
+    ReportWarningsService,
     ApiConfiguration
   ],
 })

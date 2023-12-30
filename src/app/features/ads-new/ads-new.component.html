@@ -1,3 +1,4 @@
+<!--     <p>ads-new works!</p> -->
 <div class="row">
     <div class="col-12">
         <!-- <app-map-ads></app-map-ads> -->
@@ -25,10 +26,10 @@
                         <td
                             mat-cell
                             *matCellDef="let element"
-                        > {{element.adsLocationId}} </td>
+                        > {{element.adsNewId}} </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="Address">
+                    <ng-container matColumnDef="AdsAddress">
                         <th
                             mat-header-cell
                             *matHeaderCellDef
@@ -51,49 +52,16 @@
                         > {{element.height}}m x {{element.width}}m </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="Quantity">
+                    <ng-container matColumnDef="StartDate">
                         <th
                             mat-header-cell
                             *matHeaderCellDef
-                        > Quantity </th>
+                        > Start Date </th>
                         <td
                             mat-cell
                             *matCellDef="let element"
-                        > {{element.quantity}} </td>
+                        > {{element.startDate | date:'MM/dd/yyyy  HH:mm'}} </td>
                     </ng-container>
-                    <ng-container matColumnDef="Type">
-                        <th
-                            mat-header-cell
-                            *matHeaderCellDef
-                        > Type </th>
-                        <td
-                            mat-cell
-                            *matCellDef="let element"
-                        > {{element.typeId}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Status">
-                        <th
-                            mat-header-cell
-                            *matHeaderCellDef
-                        > Status </th>
-                        <td
-                            mat-cell
-                            *matCellDef="let element"
-                        > {{element.adsStatus}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Images">
-                        <th
-                            mat-header-cell
-                            *matHeaderCellDef
-                        > Images </th>
-                        <td
-                            mat-cell
-                            *matCellDef="let element"
-                        > <!-- {{element.quantity}} --> Hinh anh</td>
-                    </ng-container>
-
                     <ng-container matColumnDef="EndDate">
                         <th
                             mat-header-cell
@@ -105,28 +73,39 @@
                         > {{element.endDate | date:'MM/dd/yyyy  HH:mm'}} </td>
                     </ng-container>
 
-
-                    <ng-container matColumnDef="Latitude">
+                    <ng-container matColumnDef="Comment">
                         <th
                             mat-header-cell
                             *matHeaderCellDef
-                        > Latitute</th>
+                        > Comment </th>
                         <td
                             mat-cell
                             *matCellDef="let element"
-                        > {{element.latitude}} </td>
+                        > {{element.comment}} </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="Longtitude">
+                    <ng-container matColumnDef="CompanyInfo">
                         <th
                             mat-header-cell
                             *matHeaderCellDef
-                        > Longtitude</th>
+                        > Company Info </th>
                         <td
                             mat-cell
                             *matCellDef="let element"
-                        > {{element.longtitude}} </td>
+                        > {{element.companyInfo}} </td>
                     </ng-container>
+
+                    <ng-container matColumnDef="ProcessingStatus">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        >  Processing Status </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.processingStatus}} </td>
+                    </ng-container>
+
 
                     <ng-container matColumnDef="Action">
                         <th
@@ -174,10 +153,10 @@
         </mat-card>
     </div>
     <div class="col-12 mt-2">
-        <app-ads-form
+        <app-ads-new-form
             *ngIf="!isLoading"
             [adsSelectedId]="adsSelectedId"
             (refresh)="refresh()"
-        ></app-ads-form>
+        ></app-ads-new-form>
     </div>
 </div>

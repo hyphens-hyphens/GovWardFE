@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { AdsComponent } from '../features/ads/ads.component';
 import { AdsTypesComponent } from '../features/ads-types/ads-types.component';
+import { AdsNewComponent } from '../features/ads-new/ads-new.component';
+import { ReportWarningComponent } from '../features/report-warning/report-warning.component';
 
 const Routing: Routes = [
 
@@ -15,6 +17,14 @@ const Routing: Routes = [
     {
         path: 'ads-types',
         component: AdsTypesComponent
+    },
+    {
+        path: 'ads-news',
+        component: AdsNewComponent
+    },
+    {
+        path: 'report',
+        component: ReportWarningComponent
     },
     {
         path: '**',
