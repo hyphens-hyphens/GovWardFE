@@ -7,6 +7,7 @@ export const environment = {
     appVersion: 'v8.1.8',
     USERDATA_KEY: 'authf649fc9a5f55',
     isMockEnabled: true,
+    tokenGoogleMap: 'AIzaSyAL9iALwJI0idWJ2OVTvh6CBsAa_3tBqSY',
     apiUrl: 'api',
     apiUrl_GOV: 'https://localhost:44374',
     appThemeName: 'Metronic',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -8,16 +9,17 @@ import { Loader } from '@googlemaps/js-api-loader';
     styleUrls: ['./map-ads.component.scss']
 })
 export class MapAdsComponent implements OnInit {
-    title = 'google-maps'
-    ide: HTMLElement
-    map: google.maps.Map;
+    title: string = 'google-maps'
+    ide?: HTMLElement
+    map?: google.maps.Map;
     service: google.maps.places.PlacesService;
     infowindow: google.maps.InfoWindow;
-    keysearch: string
+    keysearch: string = "";
+
     ngOnInit(): void {
         const loader = new Loader(
             {
-                apiKey: "AIzaSyBArSGmaIAsNmA-hzgeX-Lk_7DpmgH-PsQ",
+                apiKey: environment.tokenGoogleMap,
                 version: "weekly",
                 libraries: ["places"],
             },
@@ -27,15 +29,17 @@ export class MapAdsComponent implements OnInit {
         loader.load().then(async () => {
             const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
 
+            //10.762895626501159, 106.68246709300097
             this.map = new Map(document.getElementById("map") as HTMLElement, {
-                center: { lat: 10.810464, lng: 106.686571 },
-                zoom: 14,
+                center: { lat: 10.762895626501159, lng: 106.68246709300097 },
+                zoom: 17,
             });
+
             this.selectSearch();
         });
 
-
     }
+
     selectSearch() {
         // Create the search box and link it to the UI element.
         const input = document.getElementById("pac-input") as HTMLInputElement;
@@ -101,6 +105,7 @@ export class MapAdsComponent implements OnInit {
             this.map.fitBounds(bounds);
         });
     }
+
     searchPlace() {
         const sydney = new google.maps.LatLng(10.810464, 106.686571);
 

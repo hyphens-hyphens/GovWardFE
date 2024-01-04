@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <!-- <app-map-ads></app-map-ads> -->
+        <app-map-ads></app-map-ads>
     </div>
     <div class="col-12 mt-2">
         <mat-form-field class="w-100">
@@ -140,6 +140,12 @@
                             *matCellDef="let element"
                         >
                             <div class="d-flex justify-content-center">
+                                <button
+                                    mat-stroked-button
+                                    color="secondary"
+                                    (click)="displayInMap(element)"
+                                    [disabled]="isLoading"
+                                > Map</button>
                                 <button
                                     mat-stroked-button
                                     color="primary"

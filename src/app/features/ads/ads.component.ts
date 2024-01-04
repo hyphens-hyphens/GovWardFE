@@ -60,6 +60,10 @@ export class AdsComponent implements OnInit, AfterViewInit {
         this.adsSelectedId = element.adsLocationId;
     }
 
+    displayInMap(element: Adslocation): void {
+        this.adsSelectedId = element.adsLocationId;
+    }
+
     refresh() {
         this.adsSelectedId = undefined;
         this.getList();
