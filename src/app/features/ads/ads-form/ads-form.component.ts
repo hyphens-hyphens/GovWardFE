@@ -20,7 +20,7 @@ export class AdsLocationFormComponent implements OnInit, OnChanges {
     adsTypesList: SelectModel[] = adsTypesList;
     adsStatusList: SelectModel[] = adsStatusList;
     isLoading: boolean = false;
-
+    isFormValid: boolean | undefined = undefined;
     constructor(
         private adsLocationService: AdsLocationsService,
         private commonService: CommonService,
@@ -127,5 +127,10 @@ export class AdsLocationFormComponent implements OnInit, OnChanges {
 
     cancel() {
         this.refresh.emit();
+    }
+
+    ngModelOnChange(isValid: boolean): void {
+        this.isFormValid ??= true;
+        this.isFormValid &&= isValid;
     }
 }
