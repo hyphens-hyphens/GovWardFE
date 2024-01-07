@@ -7,7 +7,7 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
-import { Reportwarning } from '../../models/reportwarning';
+import { ReportWarning } from '../../models/report-warning';
 
 export interface ApiReportWarningsIdPut$Json$Params {
 
@@ -15,7 +15,7 @@ export interface ApiReportWarningsIdPut$Json$Params {
  * id của reportwarning muốn chỉnh sửa
  */
   id: number;
-      body?: Reportwarning
+      body?: ReportWarning
 }
 
 export function apiReportWarningsIdPut$Json(http: HttpClient, rootUrl: string, params: ApiReportWarningsIdPut$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {

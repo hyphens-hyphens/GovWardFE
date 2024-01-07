@@ -6,18 +6,18 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { Reportwarning } from '../../models/reportwarning';
-import { ReportwarningBaseResponse } from '../../models/reportwarning-base-response';
+import { ReportWarning } from '../../models/report-warning';
+import { ReportWarningBaseResponse } from '../../models/report-warning-base-response';
 
 export interface ApiReportWarningsPost$Plain$Params {
   
     /**
      * Thông tin của reportwarning mới
      */
-    body?: Reportwarning
+    body?: ReportWarning
 }
 
-export function apiReportWarningsPost$Plain(http: HttpClient, rootUrl: string, params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
+export function apiReportWarningsPost$Plain(http: HttpClient, rootUrl: string, params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
   const rb = new RequestBuilder(rootUrl, apiReportWarningsPost$Plain.PATH, 'post');
   if (params) {
     rb.body(params.body, 'application/*+json');
@@ -28,7 +28,7 @@ export function apiReportWarningsPost$Plain(http: HttpClient, rootUrl: string, p
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<ReportwarningBaseResponse>;
+      return r as StrictHttpResponse<ReportWarningBaseResponse>;
     })
   );
 }

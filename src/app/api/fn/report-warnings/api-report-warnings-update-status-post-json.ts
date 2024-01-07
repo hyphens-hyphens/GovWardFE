@@ -7,26 +7,20 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
-import { ReportWarning } from '../../models/report-warning';
+import { UpdateStatusRequest } from '../../models/update-status-request';
 
-export interface ApiReportWarningsIdPut$Plain$Params {
-
-/**
- * id của reportwarning muốn chỉnh sửa
- */
-  id: number;
-      body?: ReportWarning
+export interface ApiReportWarningsUpdateStatusPost$Json$Params {
+      body?: UpdateStatusRequest
 }
 
-export function apiReportWarningsIdPut$Plain(http: HttpClient, rootUrl: string, params: ApiReportWarningsIdPut$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
-  const rb = new RequestBuilder(rootUrl, apiReportWarningsIdPut$Plain.PATH, 'put');
+export function apiReportWarningsUpdateStatusPost$Json(http: HttpClient, rootUrl: string, params?: ApiReportWarningsUpdateStatusPost$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
+  const rb = new RequestBuilder(rootUrl, apiReportWarningsUpdateStatusPost$Json.PATH, 'post');
   if (params) {
-    rb.path('id', params.id, {"style":"simple"});
     rb.body(params.body, 'application/*+json');
   }
 
   return http.request(
-    rb.build({ responseType: 'text', accept: 'text/plain', context })
+    rb.build({ responseType: 'json', accept: 'text/json', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
@@ -35,4 +29,4 @@ export function apiReportWarningsIdPut$Plain(http: HttpClient, rootUrl: string, 
   );
 }
 
-apiReportWarningsIdPut$Plain.PATH = '/api/ReportWarnings/{id}';
+apiReportWarningsUpdateStatusPost$Json.PATH = '/api/ReportWarnings/update-status';

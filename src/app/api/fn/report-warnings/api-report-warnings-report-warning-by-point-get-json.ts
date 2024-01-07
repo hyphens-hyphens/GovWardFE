@@ -6,20 +6,17 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
+import { PointPosition } from '../../models/point-position';
 import { ReportWarningBaseResponse } from '../../models/report-warning-base-response';
 
-export interface ApiReportWarningsIdGet$Json$Params {
-
-/**
- * id của reportwarning muốn tìm kiếm
- */
-  id: number;
+export interface ApiReportWarningsReportWarningByPointGet$Json$Params {
+      body?: PointPosition
 }
 
-export function apiReportWarningsIdGet$Json(http: HttpClient, rootUrl: string, params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
-  const rb = new RequestBuilder(rootUrl, apiReportWarningsIdGet$Json.PATH, 'get');
+export function apiReportWarningsReportWarningByPointGet$Json(http: HttpClient, rootUrl: string, params?: ApiReportWarningsReportWarningByPointGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
+  const rb = new RequestBuilder(rootUrl, apiReportWarningsReportWarningByPointGet$Json.PATH, 'get');
   if (params) {
-    rb.path('id', params.id, {"style":"simple"});
+    rb.body(params.body, 'application/*+json');
   }
 
   return http.request(
@@ -32,4 +29,4 @@ export function apiReportWarningsIdGet$Json(http: HttpClient, rootUrl: string, p
   );
 }
 
-apiReportWarningsIdGet$Json.PATH = '/api/ReportWarnings/{id}';
+apiReportWarningsReportWarningByPointGet$Json.PATH = '/api/ReportWarnings/report-warning-by-point';

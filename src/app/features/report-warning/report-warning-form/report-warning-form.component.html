@@ -2,171 +2,174 @@
 <!-- <p>ads-new-form works!</p> -->
 
 <mat-card>
-  <mat-card-header>
-    <mat-card-title
-      >Report Warning
-      {{ reportwarning?.reportWarningId ? "Update" : "Create" }}</mat-card-title
-    >
-    <mat-card-subtitle *ngIf="reportwarning?.adsLocationId">
-      Id: {{ reportwarning?.adsLocationId }} - Adress:
-      {{ reportwarning?.fullName }}
-    </mat-card-subtitle>
-  </mat-card-header>
+    <mat-card-header>
+        <mat-card-title>Report Warning
+            {{ ReportWarning?.reportWarningId ? "Update" : "Create" }}</mat-card-title>
+        <mat-card-subtitle *ngIf="ReportWarning?.adsLocationId">
+            Id: {{ ReportWarning?.adsLocationId }} - Adress:
+            {{ ReportWarning?.fullName }}
+        </mat-card-subtitle>
+    </mat-card-header>
 
-  <mat-card-content>
-    <div class="row" *ngIf="reportwarning">
-      <div class="col-4" *ngIf="reportwarning?.reportWarningId">
-        <mat-form-field class="w-100">
-          <mat-label>Ads No.</mat-label>
-          <input
-            matInput
-            placeholder="ID..."
-            [(ngModel)]="reportwarning.reportWarningId"
-            [disabled]="true"
-          />
-        </mat-form-field>
-      </div>
-
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>Full Name</mat-label>
-          <input
-            matInput
-            placeholder="Fullname..."
-            [(ngModel)]="reportwarning.fullName"
-            name="fullName"
-            #fullName="ngModel"
-            minlength="2"
-            maxlength="50"
-            pattern="[a-zA-Z\s]+"
-            required
-          />
-          <mat-error *ngIf="fullName.invalid">
-            <span *ngIf="fullName.errors?.required">Fullname is required</span>
-            <span *ngIf="fullName.errors?.minlength">
-              Fullname should be at least 2 characters
-            </span>
-            <span *ngIf="fullName.errors?.maxlength">
-              Fullname should not exceed 50 characters
-            </span>
-            <span *ngIf="fullName.errors?.pattern">
-              Please enter a valid fullname
-            </span>
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>Type</mat-label>
-          <mat-select [(ngModel)]="reportwarning.warningType" name="Type">
-            <mat-option
-              *ngFor="let type of warningTypeList"
-              [value]="type.valueNumber"
+    <mat-card-content>
+        <div
+            class="row"
+            *ngIf="ReportWarning"
+        >
+            <div
+                class="col-4"
+                *ngIf="ReportWarning?.reportWarningId"
             >
-              {{ type.valueDisplay }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+                <mat-form-field class="w-100">
+                    <mat-label>Ads No.</mat-label>
+                    <input
+                        matInput
+                        placeholder="ID..."
+                        [(ngModel)]="ReportWarning.reportWarningId"
+                        [disabled]="true"
+                    />
+                </mat-form-field>
+            </div>
 
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>PhoneNumber</mat-label>
-          <input
-            matInput
-            placeholder="Phone Number..."
-            type="text"
-            [(ngModel)]="reportwarning.phoneNumber"
-            name="phoneNumber"
-            #phoneNumber="ngModel"
-            pattern="[0-9()+-]+"
-            minlength="8"
-            maxlength="15"
-            required
-          />
-          <mat-error *ngIf="phoneNumber.invalid">
-            <span *ngIf="phoneNumber.errors?.required"
-              >Phone number is required</span
-            >
-            <span *ngIf="phoneNumber.errors?.pattern">
-              Please enter a valid phone number
-            </span>
-            <span
-              *ngIf="
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Full Name</mat-label>
+                    <input
+                        matInput
+                        placeholder="Fullname..."
+                        [(ngModel)]="ReportWarning.fullName"
+                        name="fullName"
+                        #fullName="ngModel"
+                        minlength="2"
+                        maxlength="50"
+                        pattern="[a-zA-Z\s]+"
+                        required
+                    />
+                    <mat-error *ngIf="fullName.invalid">
+                        <span *ngIf="fullName.errors?.required">Fullname is required</span>
+                        <span *ngIf="fullName.errors?.minlength">
+                            Fullname should be at least 2 characters
+                        </span>
+                        <span *ngIf="fullName.errors?.maxlength">
+                            Fullname should not exceed 50 characters
+                        </span>
+                        <span *ngIf="fullName.errors?.pattern">
+                            Please enter a valid fullname
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Type</mat-label>
+                    <mat-select
+                        [(ngModel)]="ReportWarning.warningType"
+                        name="Type"
+                    >
+                        <mat-option
+                            *ngFor="let type of warningTypeList"
+                            [value]="type.valueNumber"
+                        >
+                            {{ type.valueDisplay }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>PhoneNumber</mat-label>
+                    <input
+                        matInput
+                        placeholder="Phone Number..."
+                        type="text"
+                        [(ngModel)]="ReportWarning.phoneNumber"
+                        name="phoneNumber"
+                        #phoneNumber="ngModel"
+                        pattern="[0-9()+-]+"
+                        minlength="8"
+                        maxlength="15"
+                        required
+                    />
+                    <mat-error *ngIf="phoneNumber.invalid">
+                        <span *ngIf="phoneNumber.errors?.required">Phone number is required</span>
+                        <span *ngIf="phoneNumber.errors?.pattern">
+                            Please enter a valid phone number
+                        </span>
+                        <span *ngIf="
                 phoneNumber.errors?.minlength || phoneNumber.errors?.maxlength
-              "
-            >
-              Phone number should be between 8 and 15 digits
-            </span>
-          </mat-error>
-        </mat-form-field>
-      </div>
+              ">
+                            Phone number should be between 8 and 15 digits
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>Comment</mat-label>
-          <input
-            matInput
-            placeholder="Comment..."
-            [(ngModel)]="reportwarning.comment"
-            name="comment"
-            #comment="ngModel"
-            minlength="5"
-            maxlength="200"
-            required
-          />
-          <mat-error *ngIf="comment.invalid">
-            <span *ngIf="comment.errors?.required">Comment is required</span>
-            <span *ngIf="comment.errors?.minlength"
-              >Comment should be at least 5 characters</span
-            >
-            <span *ngIf="comment.errors?.maxlength"
-              >Comment should not exceed 200 characters</span
-            >
-          </mat-error>
-        </mat-form-field>
-      </div>
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Comment</mat-label>
+                    <input
+                        matInput
+                        placeholder="Comment..."
+                        [(ngModel)]="ReportWarning.comment"
+                        name="comment"
+                        #comment="ngModel"
+                        minlength="5"
+                        maxlength="200"
+                        required
+                    />
+                    <mat-error *ngIf="comment.invalid">
+                        <span *ngIf="comment.errors?.required">Comment is required</span>
+                        <span *ngIf="comment.errors?.minlength">Comment should be at least 5 characters</span>
+                        <span *ngIf="comment.errors?.maxlength">Comment should not exceed 200 characters</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>Ads Location ID</mat-label>
-          <input
-            matInput
-            placeholder="Ads Location ID..."
-            [(ngModel)]="reportwarning.adsLocationId"
-          />
-        </mat-form-field>
-      </div>
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Ads Location ID</mat-label>
+                    <input
+                        matInput
+                        placeholder="Ads Location ID..."
+                        [(ngModel)]="ReportWarning.adsLocationId"
+                    />
+                </mat-form-field>
+            </div>
 
-      <div class="col-4">
-        <mat-form-field class="w-100">
-          <mat-label>Status</mat-label>
-          <mat-select
-            [(ngModel)]="reportwarning.reportWarningStatus"
-            name="ads-type"
-          >
-            <mat-option
-              *ngFor="let type of adsStatusList"
-              [value]="type.valueDisplay"
-            >
-              {{ type.valueDisplay }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button
-      mat-stroked-button
-      color="primary"
-      (click)="save()"
-      style="margin-right: 2px"
-      [disabled]="isLoading"
-    >
-      {{ reportwarning?.reportWarningId ? "Update" : "Create" }}
-    </button>
-    <button mat-stroked-button color="accent" (click)="cancel()">Cancel</button>
-  </mat-card-actions>
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Status</mat-label>
+                    <mat-select
+                        [(ngModel)]="ReportWarning.reportWarningStatus"
+                        name="ads-type"
+                    >
+                        <mat-option
+                            *ngFor="let type of adsStatusList"
+                            [value]="type.valueDisplay"
+                        >
+                            {{ type.valueDisplay }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button
+            mat-stroked-button
+            color="primary"
+            (click)="save()"
+            style="margin-right: 2px"
+            [disabled]="isLoading"
+        >
+            {{ ReportWarning?.reportWarningId ? "Update" : "Create" }}
+        </button>
+        <button
+            mat-stroked-button
+            color="accent"
+            (click)="cancel()"
+        >Cancel</button>
+    </mat-card-actions>
 </mat-card>

@@ -6,13 +6,13 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { ReportWarningListBaseResponse } from '../../models/report-warning-list-base-response';
+import { District } from '../../models/district';
 
-export interface ApiReportWarningsGet$Plain$Params {
+export interface ApiDistrictsGet$Plain$Params {
 }
 
-export function apiReportWarningsGet$Plain(http: HttpClient, rootUrl: string, params?: ApiReportWarningsGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningListBaseResponse>> {
-  const rb = new RequestBuilder(rootUrl, apiReportWarningsGet$Plain.PATH, 'get');
+export function apiDistrictsGet$Plain(http: HttpClient, rootUrl: string, params?: ApiDistrictsGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<District>>> {
+  const rb = new RequestBuilder(rootUrl, apiDistrictsGet$Plain.PATH, 'get');
   if (params) {
   }
 
@@ -21,9 +21,9 @@ export function apiReportWarningsGet$Plain(http: HttpClient, rootUrl: string, pa
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<ReportWarningListBaseResponse>;
+      return r as StrictHttpResponse<Array<District>>;
     })
   );
 }
 
-apiReportWarningsGet$Plain.PATH = '/api/ReportWarnings';
+apiDistrictsGet$Plain.PATH = '/api/Districts';

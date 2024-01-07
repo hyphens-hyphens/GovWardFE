@@ -11,8 +11,8 @@ import { StrictHttpResponse } from '../strict-http-response';
 
 import { apiAuthenticationLoginPost } from '../fn/authentication/api-authentication-login-post';
 import { ApiAuthenticationLoginPost$Params } from '../fn/authentication/api-authentication-login-post';
-import { apiAuthenticationPost } from '../fn/authentication/api-authentication-post';
-import { ApiAuthenticationPost$Params } from '../fn/authentication/api-authentication-post';
+import { apiAuthenticationRegisterUserPost } from '../fn/authentication/api-authentication-register-user-post';
+import { ApiAuthenticationRegisterUserPost$Params } from '../fn/authentication/api-authentication-register-user-post';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService extends BaseService {
@@ -20,27 +20,35 @@ export class AuthenticationService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `apiAuthenticationPost()` */
-  static readonly ApiAuthenticationPostPath = '/api/authentication';
+  /** Path part for operation `apiAuthenticationRegisterUserPost()` */
+  static readonly ApiAuthenticationRegisterUserPostPath = '/api/authentication/register-user';
 
   /**
+   * Register.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiAuthenticationPost()` instead.
+   * To access only the response body, use `apiAuthenticationRegisterUserPost()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiAuthenticationPost$Response(params?: ApiAuthenticationPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return apiAuthenticationPost(this.http, this.rootUrl, params, context);
+  apiAuthenticationRegisterUserPost$Response(params?: ApiAuthenticationRegisterUserPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return apiAuthenticationRegisterUserPost(this.http, this.rootUrl, params, context);
   }
 
   /**
+   * Register.
+   *
+   *
+   *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `apiAuthenticationPost$Response()` instead.
+   * To access the full response (for headers, for example), `apiAuthenticationRegisterUserPost$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiAuthenticationPost(params?: ApiAuthenticationPost$Params, context?: HttpContext): Observable<void> {
-    return this.apiAuthenticationPost$Response(params, context).pipe(
+  apiAuthenticationRegisterUserPost(params?: ApiAuthenticationRegisterUserPost$Params, context?: HttpContext): Observable<void> {
+    return this.apiAuthenticationRegisterUserPost$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
@@ -49,6 +57,10 @@ export class AuthenticationService extends BaseService {
   static readonly ApiAuthenticationLoginPostPath = '/api/authentication/login';
 
   /**
+   * Login.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAuthenticationLoginPost()` instead.
    *
@@ -59,6 +71,10 @@ export class AuthenticationService extends BaseService {
   }
 
   /**
+   * Login.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAuthenticationLoginPost$Response()` instead.
    *

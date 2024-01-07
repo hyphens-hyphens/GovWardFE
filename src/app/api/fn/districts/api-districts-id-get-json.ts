@@ -6,18 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { ReportWarningBaseResponse } from '../../models/report-warning-base-response';
+import { District } from '../../models/district';
 
-export interface ApiReportWarningsIdGet$Json$Params {
-
-/**
- * id của reportwarning muốn tìm kiếm
- */
+export interface ApiDistrictsIdGet$Json$Params {
   id: number;
 }
 
-export function apiReportWarningsIdGet$Json(http: HttpClient, rootUrl: string, params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
-  const rb = new RequestBuilder(rootUrl, apiReportWarningsIdGet$Json.PATH, 'get');
+export function apiDistrictsIdGet$Json(http: HttpClient, rootUrl: string, params: ApiDistrictsIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<District>> {
+  const rb = new RequestBuilder(rootUrl, apiDistrictsIdGet$Json.PATH, 'get');
   if (params) {
     rb.path('id', params.id, {"style":"simple"});
   }
@@ -27,9 +23,9 @@ export function apiReportWarningsIdGet$Json(http: HttpClient, rootUrl: string, p
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<ReportWarningBaseResponse>;
+      return r as StrictHttpResponse<District>;
     })
   );
 }
 
-apiReportWarningsIdGet$Json.PATH = '/api/ReportWarnings/{id}';
+apiDistrictsIdGet$Json.PATH = '/api/Districts/{id}';

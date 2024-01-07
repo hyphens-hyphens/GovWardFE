@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Ads {{ ads?.adsLocationId ? 'Update' : 'Create' }}</mat-card-title>
+        <mat-card-title>Report Warning {{ ads?.adsLocationId ? 'Update' : 'Create' }}</mat-card-title>
         <mat-card-subtitle *ngIf="ads?.adsLocationId">
             Id: {{ads?.adsLocationId}} - Location: {{ads?.adsAddress}}
         </mat-card-subtitle>
@@ -102,40 +102,6 @@
                         type="number"
                         [(ngModel)]="ads.longtitude"
                     >
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Ads Type</mat-label>
-                    <mat-select
-                        [(ngModel)]="ads.typeId"
-                        name="ads-type"
-                    >
-                        <mat-option
-                            *ngFor="let type of adsTypesList"
-                            [value]="type.valueNumber"
-                        >
-                            {{type.valueDisplay}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Ads Status</mat-label>
-                    <mat-select
-                        [(ngModel)]="ads.adsStatus"
-                        name="ads-type"
-                    >
-                        <mat-option
-                            *ngFor="let status of adsStatusList"
-                            [value]="status.valueDisplay"
-                        >
-                            {{status.valueDisplay}}
-                        </mat-option>
-                    </mat-select>
                 </mat-form-field>
             </div>
 

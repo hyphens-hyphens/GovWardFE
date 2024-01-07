@@ -6,16 +6,15 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { UserRegistrationDto } from '../../models/user-registration-dto';
 
-export interface ApiAuthenticationPost$Params {
-      body?: UserRegistrationDto
+export interface ApiDistrictsIdDelete$Params {
+  id: number;
 }
 
-export function apiAuthenticationPost(http: HttpClient, rootUrl: string, params?: ApiAuthenticationPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, apiAuthenticationPost.PATH, 'post');
+export function apiDistrictsIdDelete(http: HttpClient, rootUrl: string, params: ApiDistrictsIdDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, apiDistrictsIdDelete.PATH, 'delete');
   if (params) {
-    rb.body(params.body, 'application/*+json');
+    rb.path('id', params.id, {"style":"simple"});
   }
 
   return http.request(
@@ -28,4 +27,4 @@ export function apiAuthenticationPost(http: HttpClient, rootUrl: string, params?
   );
 }
 
-apiAuthenticationPost.PATH = '/api/authentication';
+apiDistrictsIdDelete.PATH = '/api/Districts/{id}';

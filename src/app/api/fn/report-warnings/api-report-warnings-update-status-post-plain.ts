@@ -7,21 +7,15 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
-import { ReportWarning } from '../../models/report-warning';
+import { UpdateStatusRequest } from '../../models/update-status-request';
 
-export interface ApiReportWarningsIdPut$Plain$Params {
-
-/**
- * id của reportwarning muốn chỉnh sửa
- */
-  id: number;
-      body?: ReportWarning
+export interface ApiReportWarningsUpdateStatusPost$Plain$Params {
+      body?: UpdateStatusRequest
 }
 
-export function apiReportWarningsIdPut$Plain(http: HttpClient, rootUrl: string, params: ApiReportWarningsIdPut$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
-  const rb = new RequestBuilder(rootUrl, apiReportWarningsIdPut$Plain.PATH, 'put');
+export function apiReportWarningsUpdateStatusPost$Plain(http: HttpClient, rootUrl: string, params?: ApiReportWarningsUpdateStatusPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
+  const rb = new RequestBuilder(rootUrl, apiReportWarningsUpdateStatusPost$Plain.PATH, 'post');
   if (params) {
-    rb.path('id', params.id, {"style":"simple"});
     rb.body(params.body, 'application/*+json');
   }
 
@@ -35,4 +29,4 @@ export function apiReportWarningsIdPut$Plain(http: HttpClient, rootUrl: string, 
   );
 }
 
-apiReportWarningsIdPut$Plain.PATH = '/api/ReportWarnings/{id}';
+apiReportWarningsUpdateStatusPost$Plain.PATH = '/api/ReportWarnings/update-status';

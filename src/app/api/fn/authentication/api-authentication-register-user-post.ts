@@ -8,16 +8,12 @@ import { RequestBuilder } from '../../request-builder';
 
 import { UserRegistrationDto } from '../../models/user-registration-dto';
 
-export interface ApiAuthenticationLoginPost$Params {
-  
-    /**
-     * Object với các tham số cần thiết để đăng ký
-     */
-    body?: UserRegistrationDto
+export interface ApiAuthenticationRegisterUserPost$Params {
+      body?: UserRegistrationDto
 }
 
-export function apiAuthenticationLoginPost(http: HttpClient, rootUrl: string, params?: ApiAuthenticationLoginPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, apiAuthenticationLoginPost.PATH, 'post');
+export function apiAuthenticationRegisterUserPost(http: HttpClient, rootUrl: string, params?: ApiAuthenticationRegisterUserPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, apiAuthenticationRegisterUserPost.PATH, 'post');
   if (params) {
     rb.body(params.body, 'application/*+json');
   }
@@ -32,4 +28,4 @@ export function apiAuthenticationLoginPost(http: HttpClient, rootUrl: string, pa
   );
 }
 
-apiAuthenticationLoginPost.PATH = '/api/authentication/login';
+apiAuthenticationRegisterUserPost.PATH = '/api/authentication/register-user';

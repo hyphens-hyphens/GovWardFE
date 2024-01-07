@@ -1,11 +1,12 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { finalize, catchError, tap } from 'rxjs';
-import { Adslocation, AdslocationBaseResponse, BooleanBaseResponse } from 'src/app/api/models';
-import { AdsLocationsService } from 'src/app/api/services';
+import { Adslocation, AdslocationBaseResponse, Adsnew, BooleanBaseResponse } from 'src/app/api/models';
+import { AdsLocationsService, ReportWarningsService } from 'src/app/api/services';
 import { CommonService, TypeToast } from 'src/app/common/common.service';
 import { adsStatusList } from 'src/app/common/dto/ads-status-list.dto';
 import { adsTypesList } from 'src/app/common/dto/ads-type-list.dto';
 import { SelectModel } from 'src/app/common/dto/select-model.dto';
+import { warningTypeList } from 'src/app/common/dto/warning-type-list.dto';
 
 @Component({
     selector: 'app-user-map-form',
@@ -16,39 +17,43 @@ export class UserMapFormComponent implements OnInit, OnChanges {
     @Input() adsSelectedId?: number;
     @Output() refresh: EventEmitter<void> = new EventEmitter();
 
-    ads: Adslocation | undefined = undefined;
+    ads: Adsnew | undefined = undefined;
     adsTypesList: SelectModel[] = adsTypesList;
     adsStatusList: SelectModel[] = adsStatusList;
     isLoading: boolean = false;
     isFormValid: boolean | undefined = undefined;
+
+    warningTypeList: SelectModel[] = warningTypeList;
+
     constructor(
         private adsLocationService: AdsLocationsService,
+        private reportWarningService: ReportWarningsService,
         private commonService: CommonService,
         private changeDetector: ChangeDetectorRef
     ) { }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.adsSelectedId.currentValue) {
-            this.getAdsById(changes.adsSelectedId.currentValue)
+            this.getById(changes.adsSelectedId.currentValue)
         }
         else {
-            this.initNewAds();
+            this.initNew();
         }
     }
 
     ngOnInit(): void {
     }
 
-    initNewAds(): void {
+    initNew(): void {
         this.ads = {
             isActive: true,
-            adsStatus: 'Chưa xét duyệt',
-            typeId: 1
+            longtitude: 0,
+            latitude: 0,
         };
         this.changeDetector.detectChanges();
     }
 
-    getAdsById(id: number) {
+    getById(id: number) {
         this.isLoading = true;
         this.adsLocationService
             .apiAdsLocationsIdGet$Json({ id })

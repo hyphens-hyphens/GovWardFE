@@ -29,9 +29,17 @@ import { apiReportWarningsPost$Json } from '../fn/report-warnings/api-report-war
 import { ApiReportWarningsPost$Json$Params } from '../fn/report-warnings/api-report-warnings-post-json';
 import { apiReportWarningsPost$Plain } from '../fn/report-warnings/api-report-warnings-post-plain';
 import { ApiReportWarningsPost$Plain$Params } from '../fn/report-warnings/api-report-warnings-post-plain';
+import { apiReportWarningsReportWarningByPointGet$Json } from '../fn/report-warnings/api-report-warnings-report-warning-by-point-get-json';
+import { ApiReportWarningsReportWarningByPointGet$Json$Params } from '../fn/report-warnings/api-report-warnings-report-warning-by-point-get-json';
+import { apiReportWarningsReportWarningByPointGet$Plain } from '../fn/report-warnings/api-report-warnings-report-warning-by-point-get-plain';
+import { ApiReportWarningsReportWarningByPointGet$Plain$Params } from '../fn/report-warnings/api-report-warnings-report-warning-by-point-get-plain';
+import { apiReportWarningsUpdateStatusPost$Json } from '../fn/report-warnings/api-report-warnings-update-status-post-json';
+import { ApiReportWarningsUpdateStatusPost$Json$Params } from '../fn/report-warnings/api-report-warnings-update-status-post-json';
+import { apiReportWarningsUpdateStatusPost$Plain } from '../fn/report-warnings/api-report-warnings-update-status-post-plain';
+import { ApiReportWarningsUpdateStatusPost$Plain$Params } from '../fn/report-warnings/api-report-warnings-update-status-post-plain';
 import { BooleanBaseResponse } from '../models/boolean-base-response';
-import { ReportwarningBaseResponse } from '../models/reportwarning-base-response';
-import { ReportwarningListBaseResponse } from '../models/reportwarning-list-base-response';
+import { ReportWarningBaseResponse } from '../models/report-warning-base-response';
+import { ReportWarningListBaseResponse } from '../models/report-warning-list-base-response';
 
 @Injectable({ providedIn: 'root' })
 export class ReportWarningsService extends BaseService {
@@ -52,7 +60,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsGet$Plain$Response(params?: ApiReportWarningsGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningListBaseResponse>> {
+  apiReportWarningsGet$Plain$Response(params?: ApiReportWarningsGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningListBaseResponse>> {
     return apiReportWarningsGet$Plain(this.http, this.rootUrl, params, context);
   }
 
@@ -66,9 +74,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsGet$Plain(params?: ApiReportWarningsGet$Plain$Params, context?: HttpContext): Observable<ReportwarningListBaseResponse> {
+  apiReportWarningsGet$Plain(params?: ApiReportWarningsGet$Plain$Params, context?: HttpContext): Observable<ReportWarningListBaseResponse> {
     return this.apiReportWarningsGet$Plain$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningListBaseResponse>): ReportwarningListBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningListBaseResponse>): ReportWarningListBaseResponse => r.body)
     );
   }
 
@@ -82,7 +90,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsGet$Json$Response(params?: ApiReportWarningsGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningListBaseResponse>> {
+  apiReportWarningsGet$Json$Response(params?: ApiReportWarningsGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningListBaseResponse>> {
     return apiReportWarningsGet$Json(this.http, this.rootUrl, params, context);
   }
 
@@ -96,9 +104,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsGet$Json(params?: ApiReportWarningsGet$Json$Params, context?: HttpContext): Observable<ReportwarningListBaseResponse> {
+  apiReportWarningsGet$Json(params?: ApiReportWarningsGet$Json$Params, context?: HttpContext): Observable<ReportWarningListBaseResponse> {
     return this.apiReportWarningsGet$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningListBaseResponse>): ReportwarningListBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningListBaseResponse>): ReportWarningListBaseResponse => r.body)
     );
   }
 
@@ -115,7 +123,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiReportWarningsPost$Plain$Response(params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
+  apiReportWarningsPost$Plain$Response(params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
     return apiReportWarningsPost$Plain(this.http, this.rootUrl, params, context);
   }
 
@@ -129,9 +137,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiReportWarningsPost$Plain(params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<ReportwarningBaseResponse> {
+  apiReportWarningsPost$Plain(params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
     return this.apiReportWarningsPost$Plain$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningBaseResponse>): ReportwarningBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
     );
   }
 
@@ -145,7 +153,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiReportWarningsPost$Json$Response(params?: ApiReportWarningsPost$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
+  apiReportWarningsPost$Json$Response(params?: ApiReportWarningsPost$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
     return apiReportWarningsPost$Json(this.http, this.rootUrl, params, context);
   }
 
@@ -159,9 +167,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiReportWarningsPost$Json(params?: ApiReportWarningsPost$Json$Params, context?: HttpContext): Observable<ReportwarningBaseResponse> {
+  apiReportWarningsPost$Json(params?: ApiReportWarningsPost$Json$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
     return this.apiReportWarningsPost$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningBaseResponse>): ReportwarningBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
     );
   }
 
@@ -178,7 +186,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsIdGet$Plain$Response(params: ApiReportWarningsIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
+  apiReportWarningsIdGet$Plain$Response(params: ApiReportWarningsIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
     return apiReportWarningsIdGet$Plain(this.http, this.rootUrl, params, context);
   }
 
@@ -192,9 +200,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsIdGet$Plain(params: ApiReportWarningsIdGet$Plain$Params, context?: HttpContext): Observable<ReportwarningBaseResponse> {
+  apiReportWarningsIdGet$Plain(params: ApiReportWarningsIdGet$Plain$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
     return this.apiReportWarningsIdGet$Plain$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningBaseResponse>): ReportwarningBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
     );
   }
 
@@ -208,7 +216,7 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsIdGet$Json$Response(params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
+  apiReportWarningsIdGet$Json$Response(params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
     return apiReportWarningsIdGet$Json(this.http, this.rootUrl, params, context);
   }
 
@@ -222,9 +230,9 @@ export class ReportWarningsService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  apiReportWarningsIdGet$Json(params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<ReportwarningBaseResponse> {
+  apiReportWarningsIdGet$Json(params: ApiReportWarningsIdGet$Json$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
     return this.apiReportWarningsIdGet$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<ReportwarningBaseResponse>): ReportwarningBaseResponse => r.body)
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
     );
   }
 
@@ -351,6 +359,100 @@ export class ReportWarningsService extends BaseService {
   apiReportWarningsIdDelete$Json(params: ApiReportWarningsIdDelete$Json$Params, context?: HttpContext): Observable<BooleanBaseResponse> {
     return this.apiReportWarningsIdDelete$Json$Response(params, context).pipe(
       map((r: StrictHttpResponse<BooleanBaseResponse>): BooleanBaseResponse => r.body)
+    );
+  }
+
+  /** Path part for operation `apiReportWarningsUpdateStatusPost()` */
+  static readonly ApiReportWarningsUpdateStatusPostPath = '/api/ReportWarnings/update-status';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiReportWarningsUpdateStatusPost$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsUpdateStatusPost$Plain$Response(params?: ApiReportWarningsUpdateStatusPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
+    return apiReportWarningsUpdateStatusPost$Plain(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiReportWarningsUpdateStatusPost$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsUpdateStatusPost$Plain(params?: ApiReportWarningsUpdateStatusPost$Plain$Params, context?: HttpContext): Observable<BooleanBaseResponse> {
+    return this.apiReportWarningsUpdateStatusPost$Plain$Response(params, context).pipe(
+      map((r: StrictHttpResponse<BooleanBaseResponse>): BooleanBaseResponse => r.body)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiReportWarningsUpdateStatusPost$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsUpdateStatusPost$Json$Response(params?: ApiReportWarningsUpdateStatusPost$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {
+    return apiReportWarningsUpdateStatusPost$Json(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiReportWarningsUpdateStatusPost$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsUpdateStatusPost$Json(params?: ApiReportWarningsUpdateStatusPost$Json$Params, context?: HttpContext): Observable<BooleanBaseResponse> {
+    return this.apiReportWarningsUpdateStatusPost$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<BooleanBaseResponse>): BooleanBaseResponse => r.body)
+    );
+  }
+
+  /** Path part for operation `apiReportWarningsReportWarningByPointGet()` */
+  static readonly ApiReportWarningsReportWarningByPointGetPath = '/api/ReportWarnings/report-warning-by-point';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiReportWarningsReportWarningByPointGet$Plain()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsReportWarningByPointGet$Plain$Response(params?: ApiReportWarningsReportWarningByPointGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
+    return apiReportWarningsReportWarningByPointGet$Plain(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiReportWarningsReportWarningByPointGet$Plain$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsReportWarningByPointGet$Plain(params?: ApiReportWarningsReportWarningByPointGet$Plain$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
+    return this.apiReportWarningsReportWarningByPointGet$Plain$Response(params, context).pipe(
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiReportWarningsReportWarningByPointGet$Json()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsReportWarningByPointGet$Json$Response(params?: ApiReportWarningsReportWarningByPointGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportWarningBaseResponse>> {
+    return apiReportWarningsReportWarningByPointGet$Json(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `apiReportWarningsReportWarningByPointGet$Json$Response()` instead.
+   *
+   * This method sends `application/*+json` and handles request body of type `application/*+json`.
+   */
+  apiReportWarningsReportWarningByPointGet$Json(params?: ApiReportWarningsReportWarningByPointGet$Json$Params, context?: HttpContext): Observable<ReportWarningBaseResponse> {
+    return this.apiReportWarningsReportWarningByPointGet$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<ReportWarningBaseResponse>): ReportWarningBaseResponse => r.body)
     );
   }
 

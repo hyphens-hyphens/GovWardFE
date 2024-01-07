@@ -6,19 +6,17 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { UserRegistrationDto } from '../../models/user-registration-dto';
+import { District } from '../../models/district';
 
-export interface ApiAuthenticationLoginPost$Params {
-  
-    /**
-     * Object với các tham số cần thiết để đăng ký
-     */
-    body?: UserRegistrationDto
+export interface ApiDistrictsIdPut$Params {
+  id: number;
+      body?: District
 }
 
-export function apiAuthenticationLoginPost(http: HttpClient, rootUrl: string, params?: ApiAuthenticationLoginPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, apiAuthenticationLoginPost.PATH, 'post');
+export function apiDistrictsIdPut(http: HttpClient, rootUrl: string, params: ApiDistrictsIdPut$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, apiDistrictsIdPut.PATH, 'put');
   if (params) {
+    rb.path('id', params.id, {"style":"simple"});
     rb.body(params.body, 'application/*+json');
   }
 
@@ -32,4 +30,4 @@ export function apiAuthenticationLoginPost(http: HttpClient, rootUrl: string, pa
   );
 }
 
-apiAuthenticationLoginPost.PATH = '/api/authentication/login';
+apiDistrictsIdPut.PATH = '/api/Districts/{id}';
