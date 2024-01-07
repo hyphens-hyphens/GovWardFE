@@ -130,20 +130,23 @@ export class MapAdsComponent implements OnInit {
         this.infoWindow?.open(this.map);
     }
 
+
+
     generateIconDefault() {
+
         const icon = {
-            url: './assets/media/icons/duotune/art/art003.svg',
-            size: new google.maps.Size(71, 71),
+            url: './assets/media/icons/duotune/maps/map015.png',
+            size: new google.maps.Size(100, 100),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25),
+            scaledSize: new google.maps.Size(25, 25)
         };
         return icon;
     }
 
     generateIconDefault1() {
         const icon = {
-            url: './assets/media/icons/duotune/art/art004.svg',
+            url: './assets/media/icons/duotune/maps/map016.png',
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),

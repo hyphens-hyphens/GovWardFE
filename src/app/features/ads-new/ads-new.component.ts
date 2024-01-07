@@ -17,7 +17,7 @@ import { MapAdsComponent } from '../map-ads/map-ads.component';
 export class AdsNewComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild('mapAds') mapAdsComponent: MapAdsComponent;
-  displayedColumns: string[] = ['ID', 'AdsAddress', 'Size','StartDate','EndDate','Comment','CompanyInfo','ProcessingStatus', 'Action'];
+  displayedColumns: string[] = ['ID', 'AdsAddress', 'Size','StartDate','EndDate','Comment','CompanyInfo', 'Action'];
   dataSource = new MatTableDataSource<Adsnew>();
   adsSelectedId?: number;
   deleteSelectedId?: number;

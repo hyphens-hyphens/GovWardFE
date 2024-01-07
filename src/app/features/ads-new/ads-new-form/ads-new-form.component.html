@@ -15,7 +15,7 @@
     <div class="row" *ngIf="adsnew">
       <div class="col-4" *ngIf="adsnew?.adsNewId">
         <mat-form-field class="w-100">
-          <mat-label>Ads No.</mat-label>
+          <mat-label>Ads ID.</mat-label>
           <input
             matInput
             placeholder="Address..."
@@ -116,19 +116,33 @@
         </mat-form-field>
       </div>
 
+
       <div class="col-4">
         <mat-form-field class="w-100">
-          <mat-label>Processing Status</mat-label>
-          <mat-select [(ngModel)]="adsnew.processingStatus" name="ads-type">
-            <mat-option
-              *ngFor="let type of adsProcessingList"
-              [value]="type.valueDisplay"
-            >
-              {{ type.valueDisplay }}
-            </mat-option>
-          </mat-select>
+          <mat-label>Latitude</mat-label>
+          <input
+            matInput
+            placeholder="Latitude..."
+            type="number"
+            [(ngModel)]="adsnew.latitude"
+            name="latitude"
+          />
         </mat-form-field>
       </div>
+
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Longtitude</mat-label>
+          <input
+            matInput
+            placeholder="Longtitude..."
+            type="number"
+            [(ngModel)]="adsnew.longtitude"
+            name="longtitude"
+          />
+        </mat-form-field>
+      </div>
+
 
       <div class="col-4">
         <mat-form-field class="w-100">
