@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { environment } from 'src/environments/environment';
 
@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
     styleUrls: ['./map-ads.component.scss']
 })
 export class MapAdsComponent implements OnInit {
+    @Output() currentPlaceSelectedOutput: EventEmitter<CurrentPlaceSelect> = new EventEmitter();
+
+    //
     title: string = 'google-maps'
     ide?: HTMLElement
     map?: google.maps.Map;
@@ -258,10 +261,6 @@ export class MapAdsComponent implements OnInit {
         });
 
 
-    }
-
-    test(): void {
-        this.focusToLocation(10.762993690815989, 106.68251458182272)
     }
 }
 export class CurrentPlaceSelect {

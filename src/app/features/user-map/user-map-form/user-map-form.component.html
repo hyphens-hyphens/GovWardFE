@@ -1,0 +1,180 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Ads {{ ads?.adsLocationId ? 'Update' : 'Create' }}</mat-card-title>
+        <mat-card-subtitle *ngIf="ads?.adsLocationId">
+            Id: {{ads?.adsLocationId}} - Location: {{ads?.adsAddress}}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div
+            class="row"
+            *ngIf="ads"
+        >
+            <div
+                class="col-4"
+                *ngIf="ads?.adsLocationId"
+            >
+                <mat-form-field class="w-100">
+                    <mat-label>Ads No.</mat-label>
+                    <input
+                        matInput
+                        placeholder="Address..."
+                        [(ngModel)]="ads.adsLocationId"
+                        [disabled]="true"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Address</mat-label>
+                    <input
+                        matInput
+                        placeholder="Address..."
+                        [(ngModel)]="ads.adsAddress"
+                        #inputAddress="ngModel"
+                        (ngModelChange)="ngModelOnChange(inputAddress.valid)"
+                        required=""
+                    >
+                    <mat-error *ngIf="inputAddress.invalid">
+                        <span *ngIf="inputAddress.errors?.['required']">
+                            Address is required
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Width</mat-label>
+                    <input
+                        matInput
+                        placeholder="Width..."
+                        type="number"
+                        [(ngModel)]="ads.width"
+                        #inputWidth="ngModel"
+                        required
+                        min="0"
+                        (ngModelChange)="ngModelOnChange(inputWidth.valid)"
+                    >
+                    <mat-error *ngIf="inputWidth.invalid">
+                        <span *ngIf="inputWidth.errors?.['required']">
+                            Width is required
+                        </span>
+                        <span *ngIf="inputWidth.errors?.['min']">
+                            Min width > 0
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Height</mat-label>
+                    <input
+                        matInput
+                        placeholder="Height..."
+                        type="number"
+                        [(ngModel)]="ads.height"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Latitude</mat-label>
+                    <input
+                        matInput
+                        placeholder="Latitute..."
+                        type="number"
+                        [(ngModel)]="ads.latitude"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Longtitude</mat-label>
+                    <input
+                        matInput
+                        placeholder="Longtitude..."
+                        type="number"
+                        [(ngModel)]="ads.longtitude"
+                    >
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Ads Type</mat-label>
+                    <mat-select
+                        [(ngModel)]="ads.typeId"
+                        name="ads-type"
+                    >
+                        <mat-option
+                            *ngFor="let type of adsTypesList"
+                            [value]="type.valueNumber"
+                        >
+                            {{type.valueDisplay}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Ads Status</mat-label>
+                    <mat-select
+                        [(ngModel)]="ads.adsStatus"
+                        name="ads-type"
+                    >
+                        <mat-option
+                            *ngFor="let status of adsStatusList"
+                            [value]="status.valueDisplay"
+                        >
+                            {{status.valueDisplay}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-4">
+                <mat-form-field class="w-100">
+                    <mat-label>End Date</mat-label>
+                    <input
+                        matInput
+                        [matDatepicker]="picker"
+                        [(ngModel)]="ads.endDate"
+                    >
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle
+                        matIconSuffix
+                        [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker
+                        touchUi
+                        #picker
+                    ></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+
+        <button
+            mat-stroked-button
+            color="primary"
+            (click)="save()"
+            style="margin-right: 2px;"
+            [disabled]="isLoading || isFormValid !== true"
+        >{{ ads?.adsLocationId ? 'Update' : 'Create' }}
+        </button>
+        <button
+            mat-stroked-button
+            color="accent"
+            (click)="cancel()"
+        >Cancel</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,192 @@
+<div class="row">
+    <div class="col-12">
+        <app-map-ads #mapAds></app-map-ads>
+    </div>
+    <div class="col-12 mt-2">
+        <mat-form-field class="w-100">
+            <input
+                #searchInput
+                matInput
+                (keyup)="search(searchInput.value)"
+                placeholder="Filter...."
+            >
+        </mat-form-field>
+        <mat-card>
+            <div class="mat-elevation-z8">
+                <table
+                    mat-table
+                    [dataSource]="dataSource"
+                >
+                    <ng-container matColumnDef="ID">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > No. </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.adsLocationId}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Address">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Address </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.adsAddress}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="Size">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Size </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.height}}m x {{element.width}}m </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Quantity">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Quantity </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.quantity}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Type">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Type </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.typeId}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Status">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Status </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.adsStatus}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Images">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Images </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > <!-- {{element.quantity}} --> Hinh anh</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="EndDate">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > End Date </th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.endDate | date:'MM/dd/yyyy  HH:mm'}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="Latitude">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Latitute</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.latitude}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Longtitude">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                        > Longtitude</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        > {{element.longtitude}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Action">
+                        <th
+                            mat-header-cell
+                            *matHeaderCellDef
+                            class="text-center"
+                            width="200"
+                        > Action</th>
+                        <td
+                            mat-cell
+                            *matCellDef="let element"
+                        >
+                            <div class="d-flex justify-content-center">
+                                <button
+                                    mat-stroked-button
+                                    color="secondary"
+                                    (click)="displayInMap(element)"
+                                    [disabled]="isLoading"
+                                > Map</button>
+                                <button
+                                    mat-stroked-button
+                                    color="primary"
+                                    (click)="displayForm(element)"
+                                    [disabled]="isLoading"
+                                >Update</button>
+                                <button
+                                    mat-stroked-button
+                                    color="accent"
+                                    (click)="deleteAds(element)"
+                                >Delete</button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr
+                        mat-header-row
+                        *matHeaderRowDef="displayedColumns"
+                    ></tr>
+                    <tr
+                        mat-row
+                        *matRowDef="let row; columns: displayedColumns;"
+                    ></tr>
+                </table>
+                <mat-paginator
+                    [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements"
+                >
+                </mat-paginator>
+            </div>
+        </mat-card>
+    </div>
+    <div
+        class="col-12 mt-2"
+        *ngIf="isLogin"
+    >
+        <app-user-map-form
+            *ngIf="!isLoading"
+            [adsSelectedId]="adsSelectedId"
+            (refresh)="refresh()"
+        ></app-user-map-form>
+    </div>
+</div>
