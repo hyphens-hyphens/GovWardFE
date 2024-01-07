@@ -7,6 +7,7 @@ import { Adsnew, AdslocationListBaseResponse, Adslocation, Reportwarning, Report
 import { AdsNewsService, ReportWarningsService } from 'src/app/api/services';
 import { CommonService } from 'src/app/common/common.service';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
+import { MapAdsComponent } from '../map-ads/map-ads.component';
 
 @Component({
   selector: 'app-report-warning',
@@ -14,7 +15,9 @@ import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-di
   styleUrls: ['./report-warning.component.scss']
 })
 export class ReportWarningComponent implements OnInit, AfterViewInit {
+  [x: string]: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('mapAds') mapAdsComponent: MapAdsComponent;
   displayedColumns: string[] = ['ID', 'FullName', 'Type','PhoneNumber','Comment','AdsLocationID','Status', 'Action'];
   dataSource = new MatTableDataSource<Reportwarning>();
   adsSelectedId?: number;
@@ -55,6 +58,13 @@ export class ReportWarningComponent implements OnInit, AfterViewInit {
               error: (e) => console.error(e),
           });
   }
+
+  displayInMap(element: Adsnew): void {
+    this.adsSelectedId = element.adsNewId;
+
+    this.mapAdsComponent.focusToLocation(element.latitude, element.longtitude)
+}
+
 
   displayForm(element: Reportwarning): void {
       this.adsSelectedId = element.reportWarningId;

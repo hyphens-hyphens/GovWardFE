@@ -133,5 +133,5 @@ export class AdsNewFormComponent implements OnInit, OnChanges {
   ngModelOnChange(isValid: boolean): void {
     this.isFormValid ??= true;
     this.isFormValid &&= isValid;
-}
+    }
 }
