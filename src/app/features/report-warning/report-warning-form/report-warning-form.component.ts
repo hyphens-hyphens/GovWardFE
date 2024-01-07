@@ -21,6 +21,7 @@ export class ReportWarningFormComponent implements OnInit, OnChanges {
   warningTypeList: SelectModel[] = warningTypeList;
   adsStatusList: SelectModel[] = adsStatusList;
   isLoading: boolean = false;
+  isFormValid: boolean | undefined = undefined;
 
   constructor(
       private ReportWarningsService: ReportWarningsService,
@@ -128,4 +129,9 @@ export class ReportWarningFormComponent implements OnInit, OnChanges {
   cancel() {
       this.refresh.emit();
   }
+
+  ngModelOnChange(isValid: boolean): void {
+    this.isFormValid ??= true;
+    this.isFormValid &&= isValid;
+}
 }
