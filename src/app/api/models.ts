@@ -13,3 +13,6 @@ export { BooleanBaseResponse } from './models/boolean-base-response';
 export { Reportwarning } from './models/reportwarning';
 export { ReportwarningBaseResponse } from './models/reportwarning-base-response';
 export { ReportwarningListBaseResponse } from './models/reportwarning-list-base-response';
+export { UserApp } from './models/user-app';
+export { UserAppListBaseResponse } from './models/user-app-list-base-response';
+export { UserRegistrationDto } from './models/user-registration-dto';

@@ -43,6 +43,8 @@ import { AdsNewComponent } from './features/ads-new/ads-new.component';
 import { AdsNewFormComponent } from './features/ads-new/ads-new-form/ads-new-form.component';
 import { ReportWarningComponent } from './features/report-warning/report-warning.component';
 import { ReportWarningFormComponent } from './features/report-warning/report-warning-form/report-warning-form.component';
+import { UserListComponent } from './features/user-list/user-list.component';
+import { UserFormComponent } from './features/user-list/user-form/user-form.component';
 
 // angular-material
 
@@ -56,7 +58,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent, AdsNewComponent, AdsNewFormComponent, ReportWarningComponent, ReportWarningFormComponent,],
+    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent, AdsNewComponent, AdsNewFormComponent, ReportWarningComponent, ReportWarningFormComponent, UserListComponent, UserFormComponent,],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

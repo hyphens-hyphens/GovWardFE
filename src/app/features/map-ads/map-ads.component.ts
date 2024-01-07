@@ -135,7 +135,7 @@ export class MapAdsComponent implements OnInit {
     generateIconDefault() {
 
         const icon = {
-            url: './assets/media/icons/duotune/maps/map015.png',
+            url: './assets/media/icons/duotune/maps/map016.png',
             size: new google.maps.Size(100, 100),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
@@ -146,7 +146,7 @@ export class MapAdsComponent implements OnInit {
 
     generateIconDefault1() {
         const icon = {
-            url: './assets/media/icons/duotune/maps/map016.png',
+            url: './assets/media/icons/duotune/maps/map015.png',
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),

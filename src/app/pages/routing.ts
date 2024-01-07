@@ -3,8 +3,13 @@ import { AdsComponent } from '../features/ads/ads.component';
 import { AdsTypesComponent } from '../features/ads-types/ads-types.component';
 import { AdsNewComponent } from '../features/ads-new/ads-new.component';
 import { ReportWarningComponent } from '../features/report-warning/report-warning.component';
+import { UserListComponent } from '../features/user-list/user-list.component';
 
 const Routing: Routes = [
+    {
+        path: 'user',
+        component: UserListComponent
+    },
 
     {
         path: 'map',

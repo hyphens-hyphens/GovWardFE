@@ -7,7 +7,9 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { AdsLocationsService } from './services/ads-locations.service';
 import { AdsNewsService } from './services/ads-news.service';
 import { AdsTypesService } from './services/ads-types.service';
+import { AuthenticationService } from './services/authentication.service';
 import { ReportWarningsService } from './services/report-warnings.service';
+import { UsersService } from './services/users.service';
 
 /**
  * Module that provides all services and configuration.
@@ -20,7 +22,9 @@ import { ReportWarningsService } from './services/report-warnings.service';
     AdsLocationsService,
     AdsNewsService,
     AdsTypesService,
+    AuthenticationService,
     ReportWarningsService,
+    UsersService,
     ApiConfiguration
   ],
 })
