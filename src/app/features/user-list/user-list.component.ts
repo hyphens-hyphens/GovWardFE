@@ -6,7 +6,6 @@ import { finalize, catchError, Observable, tap } from 'rxjs';
 import { Adsnew, AdsnewListBaseResponse, UserApp, UserAppListBaseResponse } from 'src/app/api/models';
 import { AdsNewsService, UsersService } from 'src/app/api/services';
 import { CommonService } from 'src/app/common/common.service';
-import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-user-list',
