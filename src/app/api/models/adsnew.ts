@@ -4,6 +4,7 @@ export interface Adsnew {
   adsAddress?: string | null;
   adsLocationId?: number | null;
   adsNewId?: number;
+  adsTypeId?: number | null;
   city?: string | null;
   comment?: string | null;
   companyAddress?: string | null;

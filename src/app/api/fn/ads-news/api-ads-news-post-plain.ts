@@ -10,7 +10,11 @@ import { Adsnew } from '../../models/adsnew';
 import { AdsnewBaseResponse } from '../../models/adsnew-base-response';
 
 export interface ApiAdsNewsPost$Plain$Params {
-      body?: Adsnew
+  
+    /**
+     * thông tin adsnew mới
+     */
+    body?: Adsnew
 }
 
 export function apiAdsNewsPost$Plain(http: HttpClient, rootUrl: string, params?: ApiAdsNewsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<AdsnewBaseResponse>> {

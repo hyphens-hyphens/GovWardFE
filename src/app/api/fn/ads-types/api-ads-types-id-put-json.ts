@@ -10,6 +10,10 @@ import { Adstype } from '../../models/adstype';
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
 
 export interface ApiAdsTypesIdPut$Json$Params {
+
+/**
+ * id của adstype muốn chỉnh sửa
+ */
   id: number;
       body?: Adstype
 }

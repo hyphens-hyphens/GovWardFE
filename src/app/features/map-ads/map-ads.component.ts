@@ -79,7 +79,7 @@ export class MapAdsComponent implements OnInit {
     }
 
 
-    public focusToLocation(latitude: number, longitude: number): void {
+    public focusToLocation(latitude: number, longitude: number, isHoanTHanh : boolean= false): void {
         if (this.map) {
             if (this.marker) {
                 this.marker.setMap(null); // Remove marker from the map
@@ -91,7 +91,7 @@ export class MapAdsComponent implements OnInit {
             this.marker = new google.maps.Marker({
                 position: newPosition,
                 map: this.map,
-                icon: this.generateIconDefault()
+                icon:isHoanTHanh ? this.generateIconDefault() :  this.generateIconDefault1()
             });
             this.map.panTo(newPosition);
         }
@@ -129,6 +129,7 @@ export class MapAdsComponent implements OnInit {
         this.infoWindow?.setPosition(location);
         this.infoWindow?.open(this.map);
     }
+
     generateIconDefault() {
         const icon = {
             url: './assets/media/icons/duotune/art/art003.svg',
@@ -139,6 +140,18 @@ export class MapAdsComponent implements OnInit {
         };
         return icon;
     }
+
+    generateIconDefault1() {
+        const icon = {
+            url: './assets/media/icons/duotune/art/art004.svg',
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25),
+        };
+        return icon;
+    }
+
 
     public selectSearch() {
         // Create the search box and link it to the UI element.

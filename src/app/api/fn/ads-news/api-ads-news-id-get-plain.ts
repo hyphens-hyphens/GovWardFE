@@ -9,6 +9,10 @@ import { RequestBuilder } from '../../request-builder';
 import { AdsnewBaseResponse } from '../../models/adsnew-base-response';
 
 export interface ApiAdsNewsIdGet$Plain$Params {
+
+/**
+ * id của adsnew muốn tìm kiếm
+ */
   id: number;
 }
 

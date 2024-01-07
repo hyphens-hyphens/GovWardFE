@@ -10,6 +10,10 @@ import { Adsnew } from '../../models/adsnew';
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
 
 export interface ApiAdsNewsIdPut$Json$Params {
+
+/**
+ * id của adsnew muốn chỉnh sửa
+ */
   id: number;
       body?: Adsnew
 }

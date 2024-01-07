@@ -9,6 +9,10 @@ import { RequestBuilder } from '../../request-builder';
 import { AdstypeBaseResponse } from '../../models/adstype-base-response';
 
 export interface ApiAdsTypesIdGet$Plain$Params {
+
+/**
+ * id của adstype muốn tìm kiếm
+ */
   id: number;
 }
 

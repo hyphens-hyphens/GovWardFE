@@ -10,7 +10,11 @@ import { Adstype } from '../../models/adstype';
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
 
 export interface ApiAdsTypesPost$Plain$Params {
-      body?: Adstype
+  
+    /**
+     * thông tin adstype mới
+     */
+    body?: Adstype
 }
 
 export function apiAdsTypesPost$Plain(http: HttpClient, rootUrl: string, params?: ApiAdsTypesPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<BooleanBaseResponse>> {

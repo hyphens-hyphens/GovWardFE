@@ -43,6 +43,10 @@ export class AdsTypesService extends BaseService {
   static readonly ApiAdsTypesGetPath = '/api/AdsTypes';
 
   /**
+   * Lấy thông tin bảng adstype.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesGet$Plain()` instead.
    *
@@ -53,6 +57,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adstype.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesGet$Plain$Response()` instead.
    *
@@ -65,6 +73,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adstype.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesGet$Json()` instead.
    *
@@ -75,6 +87,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adstype.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesGet$Json$Response()` instead.
    *
@@ -90,6 +106,10 @@ export class AdsTypesService extends BaseService {
   static readonly ApiAdsTypesPostPath = '/api/AdsTypes';
 
   /**
+   * Thêm 1 adstype mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesPost$Plain()` instead.
    *
@@ -100,6 +120,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Thêm 1 adstype mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesPost$Plain$Response()` instead.
    *
@@ -112,6 +136,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Thêm 1 adstype mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesPost$Json()` instead.
    *
@@ -122,6 +150,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Thêm 1 adstype mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesPost$Json$Response()` instead.
    *
@@ -137,6 +169,10 @@ export class AdsTypesService extends BaseService {
   static readonly ApiAdsTypesIdGetPath = '/api/AdsTypes/{id}';
 
   /**
+   * Lấy thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdGet$Plain()` instead.
    *
@@ -147,6 +183,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdGet$Plain$Response()` instead.
    *
@@ -159,6 +199,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdGet$Json()` instead.
    *
@@ -169,6 +213,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdGet$Json$Response()` instead.
    *
@@ -184,6 +232,10 @@ export class AdsTypesService extends BaseService {
   static readonly ApiAdsTypesIdPutPath = '/api/AdsTypes/{id}';
 
   /**
+   * Update thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdPut$Plain()` instead.
    *
@@ -194,6 +246,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Update thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdPut$Plain$Response()` instead.
    *
@@ -206,6 +262,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Update thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdPut$Json()` instead.
    *
@@ -216,6 +276,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Update thông tin adstype của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdPut$Json$Response()` instead.
    *
@@ -231,6 +295,10 @@ export class AdsTypesService extends BaseService {
   static readonly ApiAdsTypesIdDeletePath = '/api/AdsTypes/{id}';
 
   /**
+   * Xóa 1 adstype theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdDelete$Plain()` instead.
    *
@@ -241,6 +309,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Xóa 1 adstype theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdDelete$Plain$Response()` instead.
    *
@@ -253,6 +325,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Xóa 1 adstype theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsTypesIdDelete$Json()` instead.
    *
@@ -263,6 +339,10 @@ export class AdsTypesService extends BaseService {
   }
 
   /**
+   * Xóa 1 adstype theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsTypesIdDelete$Json$Response()` instead.
    *

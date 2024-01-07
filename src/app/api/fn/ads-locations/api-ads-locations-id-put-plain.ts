@@ -10,6 +10,10 @@ import { Adslocation } from '../../models/adslocation';
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
 
 export interface ApiAdsLocationsIdPut$Plain$Params {
+
+/**
+ * id
+ */
   id: number;
       body?: Adslocation
 }

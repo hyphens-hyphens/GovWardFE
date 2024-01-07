@@ -43,6 +43,10 @@ export class AdsNewsService extends BaseService {
   static readonly ApiAdsNewsGetPath = '/api/AdsNews';
 
   /**
+   * Lấy thông tin bảng adsnews.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsGet$Plain()` instead.
    *
@@ -53,6 +57,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adsnews.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsGet$Plain$Response()` instead.
    *
@@ -65,6 +73,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adsnews.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsGet$Json()` instead.
    *
@@ -75,6 +87,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng adsnews.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsGet$Json$Response()` instead.
    *
@@ -90,6 +106,10 @@ export class AdsNewsService extends BaseService {
   static readonly ApiAdsNewsPostPath = '/api/AdsNews';
 
   /**
+   * Thêm 1 adsnew mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsPost$Plain()` instead.
    *
@@ -100,6 +120,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Thêm 1 adsnew mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsPost$Plain$Response()` instead.
    *
@@ -112,6 +136,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Thêm 1 adsnew mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsPost$Json()` instead.
    *
@@ -122,6 +150,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Thêm 1 adsnew mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsPost$Json$Response()` instead.
    *
@@ -137,6 +169,10 @@ export class AdsNewsService extends BaseService {
   static readonly ApiAdsNewsIdGetPath = '/api/AdsNews/{id}';
 
   /**
+   * Lấy thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdGet$Plain()` instead.
    *
@@ -147,6 +183,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdGet$Plain$Response()` instead.
    *
@@ -159,6 +199,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdGet$Json()` instead.
    *
@@ -169,6 +213,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdGet$Json$Response()` instead.
    *
@@ -184,6 +232,10 @@ export class AdsNewsService extends BaseService {
   static readonly ApiAdsNewsIdPutPath = '/api/AdsNews/{id}';
 
   /**
+   * Update thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdPut$Plain()` instead.
    *
@@ -194,6 +246,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Update thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdPut$Plain$Response()` instead.
    *
@@ -206,6 +262,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Update thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdPut$Json()` instead.
    *
@@ -216,6 +276,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Update thông tin adsnew của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdPut$Json$Response()` instead.
    *
@@ -231,6 +295,10 @@ export class AdsNewsService extends BaseService {
   static readonly ApiAdsNewsIdDeletePath = '/api/AdsNews/{id}';
 
   /**
+   * Xóa 1 adsnew theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdDelete$Plain()` instead.
    *
@@ -241,6 +309,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Xóa 1 adsnew theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdDelete$Plain$Response()` instead.
    *
@@ -253,6 +325,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Xóa 1 adsnew theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsNewsIdDelete$Json()` instead.
    *
@@ -263,6 +339,10 @@ export class AdsNewsService extends BaseService {
   }
 
   /**
+   * Xóa 1 adsnew theo id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsNewsIdDelete$Json$Response()` instead.
    *
