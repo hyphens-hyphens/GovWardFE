@@ -81,7 +81,7 @@ export class MapAdsComponent implements OnInit {
     }
 
 
-    public focusToLocation(latitude: number, longitude: number): void {
+    public focusToLocation(latitude: number, longitude: number, isHoanTHanh: boolean = false): void {
         if (this.map) {
             if (this.marker) {
                 this.marker.setMap(null); // Remove marker from the map
@@ -93,13 +93,9 @@ export class MapAdsComponent implements OnInit {
             this.marker = new google.maps.Marker({
                 position: newPosition,
                 map: this.map,
-                icon: this.generateIconDefault()
+                icon: isHoanTHanh ? this.generateIconDefault() : this.generateIconDefault1()
             });
             this.map.panTo(newPosition);
-            this.currentPlaceSelected = {
-                lat: latitude,
-                lng: longitude
-            }
         }
     }
 
@@ -135,9 +131,24 @@ export class MapAdsComponent implements OnInit {
         this.infoWindow?.setPosition(location);
         this.infoWindow?.open(this.map);
     }
+
+
+
     generateIconDefault() {
+
         const icon = {
-            url: './assets/media/icons/duotune/art/art003.svg',
+            url: './assets/media/icons/duotune/maps/map015.png',
+            size: new google.maps.Size(100, 100),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+        };
+        return icon;
+    }
+
+    generateIconDefault1() {
+        const icon = {
+            url: './assets/media/icons/duotune/maps/map016.png',
             size: new google.maps.Size(71, 71),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
@@ -262,7 +273,27 @@ export class MapAdsComponent implements OnInit {
 
 
     }
+
+    test(): void {
+        // //const hcmus = { center: { lat: 10.764483718998617, lng: 106.68246709300097 } }
+        // const hcmusLocation = new google.maps.LatLng(10.764483718998617, 106.68246709300097);
+        // const hcmusPlace: google.maps.places.PlaceResult = {
+        //     geometry: { location: hcmusLocation },
+        // };
+        // this.createMarker(hcmusPlace);
+        this.focusToLocation(10.764483718998617, 106.68246709300097)
+    }
 }
+
+// export const mapIcon {
+//     default = {
+//         url: './assets/media/icons/duotune/art/art003.svg',
+//         size: new google.maps.Size(71, 71),
+//         origin: new google.maps.Point(0, 0),
+//         anchor: new google.maps.Point(17, 34),
+//         scaledSize: new google.maps.Size(25, 25),
+//     };
+// }
 export class CurrentPlaceSelect {
     lat: number;
     lng: number;

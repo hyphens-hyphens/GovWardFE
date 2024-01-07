@@ -2,6 +2,7 @@
 /* eslint-disable */
 export interface Reportwarning {
   adsLocationId?: number | null;
+  adsNewId?: number | null;
   comment?: string | null;
   createOnUtc?: string | null;
   createUserId?: number | null;

@@ -10,6 +10,10 @@ import { BooleanBaseResponse } from '../../models/boolean-base-response';
 import { Reportwarning } from '../../models/reportwarning';
 
 export interface ApiReportWarningsIdPut$Plain$Params {
+
+/**
+ * id của reportwarning muốn chỉnh sửa
+ */
   id: number;
       body?: Reportwarning
 }

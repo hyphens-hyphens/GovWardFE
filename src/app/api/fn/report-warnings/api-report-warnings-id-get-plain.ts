@@ -9,6 +9,10 @@ import { RequestBuilder } from '../../request-builder';
 import { ReportwarningBaseResponse } from '../../models/reportwarning-base-response';
 
 export interface ApiReportWarningsIdGet$Plain$Params {
+
+/**
+ * id của reportwarning muốn tìm kiếm
+ */
   id: number;
 }
 

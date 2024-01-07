@@ -9,6 +9,10 @@ import { RequestBuilder } from '../../request-builder';
 import { BooleanBaseResponse } from '../../models/boolean-base-response';
 
 export interface ApiAdsNewsIdDelete$Json$Params {
+
+/**
+ * id của adsnew muốn xóa
+ */
   id: number;
 }
 

@@ -9,6 +9,10 @@ import { RequestBuilder } from '../../request-builder';
 import { AdslocationBaseResponse } from '../../models/adslocation-base-response';
 
 export interface ApiAdsLocationsIdGet$Json$Params {
+
+/**
+ * id điểm quảng cáo
+ */
   id: number;
 }
 

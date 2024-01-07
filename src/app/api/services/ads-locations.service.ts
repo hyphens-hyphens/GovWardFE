@@ -43,6 +43,10 @@ export class AdsLocationsService extends BaseService {
   static readonly ApiAdsLocationsGetPath = '/api/AdsLocations';
 
   /**
+   * Trả về điểm quảng cáo.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsGet$Plain()` instead.
    *
@@ -53,6 +57,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Trả về điểm quảng cáo.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsGet$Plain$Response()` instead.
    *
@@ -65,6 +73,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Trả về điểm quảng cáo.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsGet$Json()` instead.
    *
@@ -75,6 +87,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Trả về điểm quảng cáo.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsGet$Json$Response()` instead.
    *
@@ -137,6 +153,10 @@ export class AdsLocationsService extends BaseService {
   static readonly ApiAdsLocationsIdGetPath = '/api/AdsLocations/{id}';
 
   /**
+   * Lấy điểm quảng cáo bằng ID.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsIdGet$Plain()` instead.
    *
@@ -147,6 +167,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Lấy điểm quảng cáo bằng ID.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsIdGet$Plain$Response()` instead.
    *
@@ -159,6 +183,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Lấy điểm quảng cáo bằng ID.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsIdGet$Json()` instead.
    *
@@ -169,6 +197,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Lấy điểm quảng cáo bằng ID.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsIdGet$Json$Response()` instead.
    *
@@ -184,6 +216,10 @@ export class AdsLocationsService extends BaseService {
   static readonly ApiAdsLocationsIdPutPath = '/api/AdsLocations/{id}';
 
   /**
+   * Chỉnh sửa thông tin điểm quảng cáo của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsIdPut$Plain()` instead.
    *
@@ -194,6 +230,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Chỉnh sửa thông tin điểm quảng cáo của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsIdPut$Plain$Response()` instead.
    *
@@ -206,6 +246,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Chỉnh sửa thông tin điểm quảng cáo của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiAdsLocationsIdPut$Json()` instead.
    *
@@ -216,6 +260,10 @@ export class AdsLocationsService extends BaseService {
   }
 
   /**
+   * Chỉnh sửa thông tin điểm quảng cáo của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiAdsLocationsIdPut$Json$Response()` instead.
    *

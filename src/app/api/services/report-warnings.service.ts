@@ -43,6 +43,10 @@ export class ReportWarningsService extends BaseService {
   static readonly ApiReportWarningsGetPath = '/api/ReportWarnings';
 
   /**
+   * Lấy thông tin bảng reportwarning.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsGet$Plain()` instead.
    *
@@ -53,6 +57,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng reportwarning.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsGet$Plain$Response()` instead.
    *
@@ -65,6 +73,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng reportwarning.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsGet$Json()` instead.
    *
@@ -75,6 +87,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin bảng reportwarning.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsGet$Json$Response()` instead.
    *
@@ -90,6 +106,10 @@ export class ReportWarningsService extends BaseService {
   static readonly ApiReportWarningsPostPath = '/api/ReportWarnings';
 
   /**
+   * Thêm 1 reportwarning mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsPost$Plain()` instead.
    *
@@ -100,6 +120,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Thêm 1 reportwarning mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsPost$Plain$Response()` instead.
    *
@@ -112,6 +136,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Thêm 1 reportwarning mới.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsPost$Json()` instead.
    *
@@ -122,6 +150,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Thêm 1 reportwarning mới.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsPost$Json$Response()` instead.
    *
@@ -137,6 +169,10 @@ export class ReportWarningsService extends BaseService {
   static readonly ApiReportWarningsIdGetPath = '/api/ReportWarnings/{id}';
 
   /**
+   * Lấy thông tin reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdGet$Plain()` instead.
    *
@@ -147,6 +183,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdGet$Plain$Response()` instead.
    *
@@ -159,6 +199,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdGet$Json()` instead.
    *
@@ -169,6 +213,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Lấy thông tin reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdGet$Json$Response()` instead.
    *
@@ -184,6 +232,10 @@ export class ReportWarningsService extends BaseService {
   static readonly ApiReportWarningsIdPutPath = '/api/ReportWarnings/{id}';
 
   /**
+   * Update thông tin 1 reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdPut$Plain()` instead.
    *
@@ -194,6 +246,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Update thông tin 1 reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdPut$Plain$Response()` instead.
    *
@@ -206,6 +262,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Update thông tin 1 reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdPut$Json()` instead.
    *
@@ -216,6 +276,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Update thông tin 1 reportwarning của id vừa nhập.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdPut$Json$Response()` instead.
    *
@@ -231,6 +295,10 @@ export class ReportWarningsService extends BaseService {
   static readonly ApiReportWarningsIdDeletePath = '/api/ReportWarnings/{id}';
 
   /**
+   * Xóa 1 reportwarning theo id.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdDelete$Plain()` instead.
    *
@@ -241,6 +309,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Xóa 1 reportwarning theo id.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdDelete$Plain$Response()` instead.
    *
@@ -253,6 +325,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Xóa 1 reportwarning theo id.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiReportWarningsIdDelete$Json()` instead.
    *
@@ -263,6 +339,10 @@ export class ReportWarningsService extends BaseService {
   }
 
   /**
+   * Xóa 1 reportwarning theo id.
+   *
+   *
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiReportWarningsIdDelete$Json$Response()` instead.
    *

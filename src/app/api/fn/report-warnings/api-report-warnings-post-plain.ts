@@ -10,7 +10,11 @@ import { Reportwarning } from '../../models/reportwarning';
 import { ReportwarningBaseResponse } from '../../models/reportwarning-base-response';
 
 export interface ApiReportWarningsPost$Plain$Params {
-      body?: Reportwarning
+  
+    /**
+     * Thông tin của reportwarning mới
+     */
+    body?: Reportwarning
 }
 
 export function apiReportWarningsPost$Plain(http: HttpClient, rootUrl: string, params?: ApiReportWarningsPost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<ReportwarningBaseResponse>> {
