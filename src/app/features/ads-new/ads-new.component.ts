@@ -7,6 +7,7 @@ import { Adslocation, AdslocationListBaseResponse, Adsnew, AdsnewListBaseRespons
 import { AdsNewsService } from 'src/app/api/services';
 import { CommonService } from 'src/app/common/common.service';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
+import { MapAdsComponent } from '../map-ads/map-ads.component';
 
 @Component({
   selector: 'app-ads-new',
@@ -15,6 +16,7 @@ import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-di
 })
 export class AdsNewComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('mapAds') mapAdsComponent: MapAdsComponent;
   displayedColumns: string[] = ['ID', 'AdsAddress', 'Size','StartDate','EndDate','Comment','CompanyInfo','ProcessingStatus', 'Action'];
   dataSource = new MatTableDataSource<Adsnew>();
   adsSelectedId?: number;
@@ -55,6 +57,12 @@ export class AdsNewComponent implements OnInit, AfterViewInit {
               error: (e) => console.error(e),
           });
   }
+
+displayInMap(element: Adsnew): void {
+    this.adsSelectedId = element.adsNewId;
+
+    this.mapAdsComponent.focusToLocation(element.latitude, element.longtitude)
+}
 
   displayForm(element: Adsnew): void {
       this.adsSelectedId = element.adsNewId;

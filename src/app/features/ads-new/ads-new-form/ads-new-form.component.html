@@ -122,7 +122,7 @@
           <mat-select [(ngModel)]="adsnew.processingStatus" name="ads-type">
             <mat-option
               *ngFor="let type of adsProcessingList"
-              [value]="type.valueNumber"
+              [value]="type.valueDisplay"
             >
               {{ type.valueDisplay }}
             </mat-option>
