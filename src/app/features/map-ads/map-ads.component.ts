@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { environment } from 'src/environments/environment';
 
@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
     styleUrls: ['./map-ads.component.scss']
 })
 export class MapAdsComponent implements OnInit {
+    @Output() currentPlaceSelectedOutput: EventEmitter<CurrentPlaceSelect> = new EventEmitter();
+
+    //
     title: string = 'google-maps'
     ide?: HTMLElement
     map?: google.maps.Map;
@@ -18,7 +21,6 @@ export class MapAdsComponent implements OnInit {
     //
     currentPlaceSelected?: CurrentPlaceSelect;
     private marker: google.maps.Marker | undefined;
-
     //
     ngOnInit(): void {
         const loader = new Loader(
@@ -79,7 +81,7 @@ export class MapAdsComponent implements OnInit {
     }
 
 
-    public focusToLocation(latitude: number, longitude: number, isHoanTHanh : boolean= false): void {
+    public focusToLocation(latitude: number, longitude: number, isHoanTHanh: boolean = false): void {
         if (this.map) {
             if (this.marker) {
                 this.marker.setMap(null); // Remove marker from the map
@@ -91,7 +93,7 @@ export class MapAdsComponent implements OnInit {
             this.marker = new google.maps.Marker({
                 position: newPosition,
                 map: this.map,
-                icon:isHoanTHanh ? this.generateIconDefault() :  this.generateIconDefault1()
+                icon: isHoanTHanh ? this.generateIconDefault() : this.generateIconDefault1()
             });
             this.map.panTo(newPosition);
         }
@@ -154,7 +156,6 @@ export class MapAdsComponent implements OnInit {
         };
         return icon;
     }
-
 
     public selectSearch() {
         // Create the search box and link it to the UI element.

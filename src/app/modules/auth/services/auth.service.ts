@@ -48,7 +48,6 @@ export class AuthService implements OnDestroy {
         this.isLoadingSubject.next(true);
         return this.authHttpService.login(email, password).pipe(
             map((auth: AuthModel) => {
-                console.log(auth)
                 const result = this.setAuthFromLocalStorage(auth);
                 return result;
             }),
@@ -79,6 +78,7 @@ export class AuthService implements OnDestroy {
         a.setFullYear(2100)
         const model = {
             id: 1,
+            isLogin: true,
             username: 'admin',
             password: 'demo',
             email: 'admin@demo.com',

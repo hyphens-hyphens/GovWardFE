@@ -116,17 +116,26 @@
         </mat-form-field>
       </div>
 
-
       <div class="col-4">
         <mat-form-field class="w-100">
           <mat-label>Latitude</mat-label>
           <input
             matInput
-            placeholder="Latitude..."
+            placeholder="Latitude (-90 to 90)..."
             type="number"
             [(ngModel)]="adsnew.latitude"
             name="latitude"
+            #latitude="ngModel"
+            min="-90"
+            max="90"
+            required
           />
+          <mat-error *ngIf="latitude.invalid">
+            <span *ngIf="latitude.errors?.required">Latitude is required</span>
+            <span *ngIf="latitude.errors?.min || latitude.errors?.max">
+              Latitude should be between -90 and 90
+            </span>
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -135,14 +144,25 @@
           <mat-label>Longtitude</mat-label>
           <input
             matInput
-            placeholder="Longtitude..."
+            placeholder="Longtitude (-180 to 180)..."
             type="number"
             [(ngModel)]="adsnew.longtitude"
             name="longtitude"
+            #longtitude="ngModel"
+            min="-180"
+            max="180"
+            required
           />
+          <mat-error *ngIf="longtitude.invalid">
+            <span *ngIf="longtitude.errors?.required"
+              >Longtitude is required</span
+            >
+            <span *ngIf="longtitude.errors?.min || longtitude.errors?.max">
+              Longtitude should be between -180 and 180
+            </span>
+          </mat-error>
         </mat-form-field>
       </div>
-
 
       <div class="col-4">
         <mat-form-field class="w-100">
