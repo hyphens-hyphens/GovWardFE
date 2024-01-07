@@ -19,9 +19,9 @@ export class AuthHTTPService {
         a.setFullYear(2100)
         return of(
             {
-                authToken: 'haha',
+                authToken: 'Bearer ' + Math.random(),
                 expiresIn: a,
-                refreshToken: 'haha',
+                refreshToken: 'Bearer ' + Math.random(),
             } as AuthModel
         )
         return this.http.post<AuthModel>(`${API_USERS_URL}/login`, {

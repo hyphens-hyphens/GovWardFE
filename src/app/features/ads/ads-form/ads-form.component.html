@@ -168,7 +168,7 @@
             color="primary"
             (click)="save()"
             style="margin-right: 2px;"
-            [disabled]="isLoading || isFormValid !== true"
+            [disabled]="isLoading"
         >{{ ads?.adsLocationId ? 'Update' : 'Create' }}
         </button>
         <button

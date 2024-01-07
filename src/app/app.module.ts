@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +47,7 @@ import { UserListComponent } from './features/user-list/user-list.component';
 import { UserFormComponent } from './features/user-list/user-form/user-form.component';
 import { UserMapComponent } from './features/user-map/user-map.component';
 import { UserMapFormComponent } from './features/user-map/user-map-form/user-map-form.component';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 // angular-material
 
@@ -60,7 +61,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent, AdsNewComponent, AdsNewFormComponent, ReportWarningComponent, ReportWarningFormComponent, UserListComponent, UserFormComponent,UserMapComponent, UserMapFormComponent],
+    declarations: [AppComponent, AdsComponent, AdsLocationFormComponent, ConfirmDialogComponent, AdsTypesComponent, AdsTypesFormComponent, AdsNewComponent, AdsNewFormComponent, ReportWarningComponent, ReportWarningFormComponent, UserListComponent, UserFormComponent, UserMapComponent, UserMapFormComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -103,6 +104,8 @@ function appInitializer(authService: AuthService) {
             multi: true,
             deps: [AuthService],
         },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+
     ],
     bootstrap: [AppComponent],
 })
