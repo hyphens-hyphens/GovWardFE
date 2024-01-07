@@ -8,28 +8,14 @@
 >
     <!--begin::Heading-->
     <div class="text-center mb-11">
-        <h1 class="text-gray-900 fw-bolder mb-3">
-            Sign In
-        </h1>
-        <!--begin::Subtitle-->
-        <div class="text-gray-500 fw-semibold fs-6">
-            Your Social Campaigns
-        </div>
-        <!--end::Subtitle--->
-        <!-- <div class="text-gray-500 fw-bold fs-4">
-      New Here?
-      <a
-        routerLink="/auth/registration"
-        id="kt_login_signup"
-        class="link-primary fw-bolder"
-        >{{ "AUTH.GENERAL.SIGNUP_BUTTON" | translate }}</a
-      >
-    </div> -->
     </div>
     <!--end::Heading-->
 
     <!--begin::Login options-->
-    <div class="row g-3 mb-9">
+    <div
+        class="row g-3 mb-9"
+        *ngIf="false"
+    >
         <!--begin::Col-->
         <div class="col-md-6">
             <!--begin::Google link--->
@@ -75,16 +61,27 @@
 
     <!--begin::Separator-->
     <div class="separator separator-content my-14">
-        <span class="w-125px text-gray-500 fw-semibold fs-7">Or with email</span>
+        <span class="w-125px text-gray-500 fw-semibold fs-7">Regsiter from API (have a body example in migration.md)
+        </span>
     </div>
     <!--end::Separator-->
 
     <!-- begin::Alert info-->
-    <ng-container *ngIf="!hasError">
+    <ng-container *ngIf="!hasError && false">
         <div class="mb-10 bg-light-info p-8 rounded">
             <div class="text-info">
-                Use account <strong>{{ defaultAuth.email }}</strong> and password
-                <strong>{{ defaultAuth.password }}</strong> to continue.
+
+                <code>
+                    "firstName": "admin",
+                    "lastName": "admin",
+                    "userName": "admin",
+                    "password": "admin-admin",
+                    "email": "admin@gmail.com",
+                    "phoneNumber": "0909999999",
+                    "roles": [
+                    "AdminGov"
+                    ]
+                </code>
             </div>
         </div>
     </ng-container>

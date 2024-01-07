@@ -28,49 +28,6 @@
 
             <div class="col-4">
                 <mat-form-field class="w-100">
-                    <mat-label>Address</mat-label>
-                    <input
-                        matInput
-                        placeholder="Address..."
-                        [(ngModel)]="ads.adsAddress"
-                        #inputAddress="ngModel"
-                        (ngModelChange)="ngModelOnChange(inputAddress.valid)"
-                        required=""
-                    >
-                    <mat-error *ngIf="inputAddress.invalid">
-                        <span *ngIf="inputAddress.errors?.['required']">
-                            Address is required
-                        </span>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Width</mat-label>
-                    <input
-                        matInput
-                        placeholder="Width..."
-                        type="number"
-                        [(ngModel)]="ads.width"
-                        #inputWidth="ngModel"
-                        required
-                        min="0"
-                        (ngModelChange)="ngModelOnChange(inputWidth.valid)"
-                    >
-                    <mat-error *ngIf="inputWidth.invalid">
-                        <span *ngIf="inputWidth.errors?.['required']">
-                            Width is required
-                        </span>
-                        <span *ngIf="inputWidth.errors?.['min']">
-                            Min width > 0
-                        </span>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
                     <mat-label>Height</mat-label>
                     <input
                         matInput
@@ -81,49 +38,6 @@
                 </mat-form-field>
             </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Latitude</mat-label>
-                    <input
-                        matInput
-                        placeholder="Latitute..."
-                        type="number"
-                        [(ngModel)]="ads.latitude"
-                    >
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Longtitude</mat-label>
-                    <input
-                        matInput
-                        placeholder="Longtitude..."
-                        type="number"
-                        [(ngModel)]="ads.longtitude"
-                    >
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>End Date</mat-label>
-                    <input
-                        matInput
-                        [matDatepicker]="picker"
-                        [(ngModel)]="ads.endDate"
-                    >
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle
-                        matIconSuffix
-                        [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker
-                        touchUi
-                        #picker
-                    ></mat-datepicker>
-                </mat-form-field>
-            </div>
 
         </div>
     </mat-card-content>
