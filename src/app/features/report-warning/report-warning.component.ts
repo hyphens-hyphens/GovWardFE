@@ -7,7 +7,7 @@ import { Adsnew, ReportWarning, ReportWarningListBaseResponse } from 'src/app/ap
 import { ReportWarningsService } from 'src/app/api/services';
 import { CommonService } from 'src/app/common/common.service';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
-import { MapAdsComponent } from '../map-ads/map-ads.component';
+import { CurrentPlaceSelect, MapAdsComponent } from '../map-ads/map-ads.component';
 
 @Component({
     selector: 'app-report-warning',
@@ -15,7 +15,6 @@ import { MapAdsComponent } from '../map-ads/map-ads.component';
     styleUrls: ['./report-warning.component.scss']
 })
 export class ReportWarningComponent implements OnInit, AfterViewInit {
-    [x: string]: any;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild('mapAds') mapAdsComponent: MapAdsComponent;
     displayedColumns: string[] = ['ID', 'FullName', 'Type', 'PhoneNumber', 'Comment', 'AdsLocationID', 'Status', 'Action'];
@@ -54,15 +53,25 @@ export class ReportWarningComponent implements OnInit, AfterViewInit {
             .subscribe({
                 next: (response: ReportWarningListBaseResponse) => {
                     this.dataSource.data = response.data;
+
+                    const list = response.data.map(x => <CurrentPlaceSelect>{
+                        isWarning: x.warningType !== 'Tố giác sai phạm',
+                        lat: x.latitude,
+                        lng: x.longtitude
+                    })
+
+                    this.mapAdsComponent.setMyMarkers(list);
                 },
                 error: (e) => console.error(e),
             });
     }
 
-    displayInMap(element: Adsnew): void {
+    displayInMap(element: ReportWarning): void {
         this.adsSelectedId = element.adsNewId;
 
-        this.mapAdsComponent.focusToLocation(element.latitude, element.longtitude)
+        this.mapAdsComponent.focusToLocation(element.latitude, element.longtitude,
+            element.warningType !== 'Tố giác sai phạm'
+        )
     }
 
 

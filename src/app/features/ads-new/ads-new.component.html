@@ -1,7 +1,10 @@
 <!--     <p>ads-new works!</p> -->
 <div class="row">
     <div class="col-12">
-        <app-map-ads #mapAds></app-map-ads>
+        <app-map-ads
+            #mapAds
+            (currentPointSelectedOuput)="currentPointSelected($event)"
+        ></app-map-ads>
     </div>
     <div class="col-12">
         <!-- <app-map-ads></app-map-ads> -->
@@ -97,7 +100,7 @@
                             *matCellDef="let element"
                         > {{element.companyInfo}} </td>
                     </ng-container>
-    
+
 
 
                     <ng-container matColumnDef="Action">
@@ -113,10 +116,10 @@
                         >
                             <div class="d-flex justify-content-center">
                                 <button
-                                mat-stroked-button
-                                color="secondary"
-                                (click)="displayInMap(element)"
-                            >Map</button>
+                                    mat-stroked-button
+                                    color="secondary"
+                                    (click)="displayInMap(element)"
+                                >Map</button>
                                 <button
                                     mat-stroked-button
                                     color="primary"

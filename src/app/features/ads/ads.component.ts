@@ -7,7 +7,7 @@ import { Adslocation, AdslocationListBaseResponse } from 'src/app/api/models';
 import { AdsLocationsService } from 'src/app/api/services';
 import { CommonService, TypeToast } from 'src/app/common/common.service';
 import { ConfirmDialogComponent } from 'src/app/common/confirm-dialog/confirm-dialog.component';
-import { MapAdsComponent } from '../map-ads/map-ads.component';
+import { CurrentPlaceSelect, MapAdsComponent } from '../map-ads/map-ads.component';
 
 @Component({
     selector: 'app-ads',
@@ -112,5 +112,9 @@ export class AdsComponent implements OnInit, AfterViewInit {
 
     clearSelectedDelete = () => {
         this.deleteSelectedId = undefined;
+    }
+
+    currentPointSelected($event: CurrentPlaceSelect) {
+
     }
 }

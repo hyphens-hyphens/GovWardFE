@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
     styleUrls: ['./map-ads.component.scss']
 })
 export class MapAdsComponent implements OnInit {
-    @Output() currentPlaceSelectedOutput: EventEmitter<CurrentPlaceSelect> = new EventEmitter();
+    @Output() currentPointSelectedOuput: EventEmitter<CurrentPlaceSelect> = new EventEmitter();
 
     //
     title: string = 'google-maps'
@@ -55,6 +55,12 @@ export class MapAdsComponent implements OnInit {
         });
     }
 
+    public setMyMarkers(currentPlaceSelect: CurrentPlaceSelect[]) {
+        setTimeout(() => {
+
+        }, 10)
+    }
+
     locationOnClickHandle() {
         google.maps.event.addListener(this.map, 'click', (event: google.maps.MapMouseEvent) => {
             const clickedLocation = event.latLng;
@@ -75,8 +81,6 @@ export class MapAdsComponent implements OnInit {
             const lng = clickedLocation.lng();
             const a = clickedLocation.toJSON();
 
-            console.log('clickedLocation', a);
-
         });
     }
 
@@ -88,8 +92,6 @@ export class MapAdsComponent implements OnInit {
             }
             const newPosition = new google.maps.LatLng(latitude, longitude);
             // Create a new marker at the clicked location
-
-
             this.marker = new google.maps.Marker({
                 position: newPosition,
                 map: this.map,
@@ -297,4 +299,5 @@ export class MapAdsComponent implements OnInit {
 export class CurrentPlaceSelect {
     lat: number;
     lng: number;
+    isWarning: boolean;
 }
