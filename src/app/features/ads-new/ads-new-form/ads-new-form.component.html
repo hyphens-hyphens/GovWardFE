@@ -1,164 +1,203 @@
 <!-- <p>ads-new-form works!</p> -->
 
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Ads news {{ adsnew?.adsLocationId ? 'Update' : 'Create' }}</mat-card-title>
-        <mat-card-subtitle *ngIf="adsnew?.adsLocationId">
-        Id: {{adsnew?.adsLocationId}} - Adress: {{adsnew?.adsAddress}}
-        </mat-card-subtitle>
-    </mat-card-header>
+  <mat-card-header>
+    <mat-card-title
+      >Ads news
+      {{ adsnew?.adsLocationId ? "Update" : "Create" }}</mat-card-title
+    >
+    <mat-card-subtitle *ngIf="adsnew?.adsLocationId">
+      Id: {{ adsnew?.adsLocationId }} - Adress: {{ adsnew?.adsAddress }}
+    </mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-card-content>
-        <div
-            class="row"
-            *ngIf="adsnew"
-        >
-            <div
-                class="col-4"
-                *ngIf="adsnew?.adsNewId"
+  <mat-card-content>
+    <div class="row" *ngIf="adsnew">
+      <div class="col-4" *ngIf="adsnew?.adsNewId">
+        <mat-form-field class="w-100">
+          <mat-label>Ads No.</mat-label>
+          <input
+            matInput
+            placeholder="Address..."
+            [(ngModel)]="adsnew.adsNewId"
+            [disabled]="true"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Address</mat-label>
+          <input
+            matInput
+            placeholder="Address..."
+            [(ngModel)]="adsnew.adsAddress"
+            name="adsAddress"
+            #adsAddress="ngModel"
+            minlength="2"
+            maxlength="100"
+            required
+          />
+          <mat-error *ngIf="adsAddress.invalid">
+            <span *ngIf="adsAddress.errors?.required">Address is required</span>
+            <span *ngIf="adsAddress.errors?.minlength">
+              Address should be at least 2 characters
+            </span>
+            <span *ngIf="adsAddress.errors?.maxlength">
+              Address should not exceed 100 characters
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Width</mat-label>
+          <input
+            matInput
+            placeholder="Width (meters)..."
+            type="number"
+            [(ngModel)]="adsnew.width"
+            name="width"
+            #width="ngModel"
+            min="0.1"
+            required
+          />
+          <mat-error *ngIf="width.invalid">
+            <span *ngIf="width.errors?.required">Width is required</span>
+            <span *ngIf="width.errors?.min"
+              >Width should be greater than 0</span
             >
-                <mat-form-field class="w-100">
-                    <mat-label>Ads No.</mat-label>
-                    <input
-                        matInput
-                        placeholder="Address..."
-                        [(ngModel)]="adsnew.adsNewId"
-                        [disabled]="true"
-                    >
-                </mat-form-field>
-            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Address</mat-label>
-                    <input
-                        matInput
-                        placeholder="Address..."
-                        [(ngModel)]="adsnew.adsAddress"
-                    >
-                </mat-form-field>
-            </div>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Height</mat-label>
+          <input
+            matInput
+            placeholder="Height (meters)..."
+            type="number"
+            [(ngModel)]="adsnew.height"
+            name="height"
+            #height="ngModel"
+            min="0.1"
+            required
+          />
+          <mat-error *ngIf="height.invalid">
+            <span *ngIf="height.errors?.required">Height is required</span>
+            <span *ngIf="height.errors?.min"
+              >Height should be greater than 0</span
+            >
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Width</mat-label>
-                    <input
-                        matInput
-                        placeholder="Width..."
-                        type="number"
-                        [(ngModel)]="adsnew.width"
-                    >
-                </mat-form-field>
-            </div>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Comment</mat-label>
+          <input
+            matInput
+            placeholder="Comment..."
+            [(ngModel)]="adsnew.comment"
+          />
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Height</mat-label>
-                    <input
-                        matInput
-                        placeholder="Height..."
-                        type="number"
-                        [(ngModel)]="adsnew.height"
-                    >
-                </mat-form-field>
-            </div>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Company Info</mat-label>
+          <input
+            matInput
+            placeholder="CompanyInfo..."
+            [(ngModel)]="adsnew.companyInfo"
+          />
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Comment</mat-label>
-                    <input
-                        matInput
-                        placeholder="Comment..."
-                        [(ngModel)]="adsnew.comment"
-                    >
-                </mat-form-field>
-            </div>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Processing Status</mat-label>
+          <mat-select [(ngModel)]="adsnew.processingStatus" name="ads-type">
+            <mat-option
+              *ngFor="let type of adsProcessingList"
+              [value]="type.valueNumber"
+            >
+              {{ type.valueDisplay }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Company Info</mat-label>
-                    <input
-                        matInput
-                        placeholder="CompanyInfo..."
-                        [(ngModel)]="adsnew.companyInfo"
-                    >
-                </mat-form-field>
-            </div>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="startDatePicker"
+            [(ngModel)]="adsnew.startDate"
+            name="startDate"
+            #startDate="ngModel"
+            required
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="startDatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #startDatePicker></mat-datepicker>
+          <mat-error *ngIf="startDate.invalid && startDate.touched">
+            <span *ngIf="startDate.errors?.required"
+              >Start Date is required</span
+            >
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Processing Status</mat-label>
-                    <mat-select
-                        [(ngModel)]="adsnew.processingStatus"
-                        name="ads-type"
-                    >
-                        <mat-option
-                            *ngFor="let type of adsProcessingList"
-                            [value]="type.valueNumber"
-                        >
-                            {{type.valueDisplay}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>Start Date</mat-label>
-                    <input
-                        matInput
-                        [matDatepicker]="picker"
-                        [(ngModel)]="adsnew.startDate"
-                    >
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle
-                        matIconSuffix
-                        [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker
-                        touchUi
-                        #picker
-                    ></mat-datepicker>
-                </mat-form-field>
-            </div>
-
-            <div class="col-4">
-                <mat-form-field class="w-100">
-                    <mat-label>End Date</mat-label>
-                    <input
-                        matInput
-                        [matDatepicker]="picker"
-                        [(ngModel)]="adsnew.endDate"
-                    >
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle
-                        matIconSuffix
-                        [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker
-                        touchUi
-                        #picker
-                    ></mat-datepicker>
-                </mat-form-field>
-            </div>
-
-        </div>
-    </mat-card-content>
-    <mat-card-actions align="end">
-
-        <button
-            mat-stroked-button
-            color="primary"
-            (click)="save()"
-            style="margin-right: 2px;"
-            [disabled]="isLoading"
-        >{{ adsnew?.adsLocationId ? 'Update' : 'Create' }}
-        </button>
-        <button
-            mat-stroked-button
-            color="accent"
-            (click)="cancel()"
-        >Cancel</button>
-    </mat-card-actions>
+      <div class="col-4">
+        <mat-form-field class="w-100">
+          <mat-label>End Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="endDatePicker"
+            [(ngModel)]="adsnew.endDate"
+            name="endDate"
+            #endDate="ngModel"
+            required
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="endDatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker touchUi #endDatePicker></mat-datepicker>
+          <mat-error *ngIf="endDate.invalid && endDate.touched">
+            <span *ngIf="endDate.errors?.required">End Date is required</span>
+            <span
+              *ngIf="
+                adsnew.startDate &&
+                adsnew.endDate &&
+                endDate.value < adsnew.startDate
+              "
+            >
+              End Date must be after Start Date
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="save()"
+      style="margin-right: 2px"
+      [disabled]="isLoading"
+    >
+      {{ adsnew?.adsLocationId ? "Update" : "Create" }}
+    </button>
+    <button mat-stroked-button color="accent" (click)="cancel()">Cancel</button>
+  </mat-card-actions>
 </mat-card>

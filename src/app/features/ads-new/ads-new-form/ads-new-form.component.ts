@@ -21,6 +21,7 @@ export class AdsNewFormComponent implements OnInit, OnChanges {
   adsnew: Adsnew | undefined = undefined;
   adsProcessingList: SelectModel[] = adsProcessingList;
   isLoading: boolean = false;
+  isFormValid: boolean | undefined = undefined;
 
   constructor(
       private adsNewsService: AdsNewsService,
@@ -128,4 +129,9 @@ export class AdsNewFormComponent implements OnInit, OnChanges {
   cancel() {
       this.refresh.emit();
   }
+
+  ngModelOnChange(isValid: boolean): void {
+    this.isFormValid ??= true;
+    this.isFormValid &&= isValid;
+}
 }
